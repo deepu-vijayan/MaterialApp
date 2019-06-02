@@ -1,0 +1,25 @@
+.container{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .mat-card{
+      width:40%;
+      min-width: 210px;
+  }
+  .mat-form-field{
+      width:100%;
+  }
+  .mat-card-actions{
+      display: flex;
+      justify-content: flex-end;
+  }
+  .links{
+      display: flex;
+      align-items: flex-start;
+  }
+  .links div:last-child {
+      margin-left: auto;
+  }
+
+}
