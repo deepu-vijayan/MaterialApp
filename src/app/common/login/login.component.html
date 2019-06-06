@@ -1,10 +1,11 @@
+
 <div class="container">
     <mat-card>
         <mat-card-header>
             <mat-card-title>Login</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <mat-form-field appearance="outline">
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>User Name</mat-label>
                 <input matInput placeholder="User Name" >
                 <mat-icon matPrefix >person</mat-icon>
@@ -17,14 +18,35 @@
               <div class="links">
                 <div><a routerLink="/register">Register</a></div>
                 <div><a>Forgot?</a></div>
+              </div> -->
+              <!-- <google-signin
+              [clientId]="myClientId"
+              [width]="myWidth"
+              [theme]="myTheme"
+              [scope]="myScope"
+              [longTitle]="myLongTitle"
+              (googleSignInSuccess)="onGoogleSignInSuccess($event)">
+            </google-signin> -->
+
+              <!-- <button mat-raised-button 	color="primary" (click)="liAuth();">
+                  <mat-icon>thumb_up_alt</mat-icon>
+                  LinkedIn
+              </button> -->
+              <div>
+                <button mat-stroked-button	 (click)="fbLogin();">
+                    <mat-icon>thumb_up_alt</mat-icon>
+                    Facebook
+                </button>
+              </div>
+              <div>
+                <button mat-stroked-button	id="googleBtn" >
+                    <mat-icon>email</mat-icon>
+                    Google
+                  </button>
               </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button 	color="primary" (click)="fbLogin();">
-                <mat-icon>thumb_up_alt</mat-icon>
-                Facebook
-            </button>
-            <button mat-raised-button 	color="primary"		>LOGIN</button>
+
           </mat-card-actions>
     </mat-card>
 

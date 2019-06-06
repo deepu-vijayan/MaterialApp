@@ -21,5 +21,13 @@
     .links div:last-child {
         margin-left: auto;
     }
-    
+    .mat-card-content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      div{
+        margin:10px;
+      }
+    }
+
 }

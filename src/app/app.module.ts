@@ -22,6 +22,7 @@ import { RegisterComponent } from './common/register/register.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
