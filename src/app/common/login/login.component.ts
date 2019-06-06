@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       console.log('submitLogin', response);
       if (response.authResponse) {
         console.log('logged in');
+        let userId = response.authResponse.userID;
         FB.api("/" + response.authResponse.userID + "/?fields=gender,email,name,id,picture", function (response) {
           //FB.api("/me?fields=name,id,email,birthday",function (response) {
           console.log('api in');
@@ -99,6 +100,16 @@ export class LoginComponent implements OnInit, AfterViewInit {
           // if (response && !response.error) {
           //   /* handle the result */
           // }
+          FB.api(
+            "/" + userId + "/friends",
+            'GET',
+            {},
+            function(response) {
+              console.log('friends in');
+              console.log(response);
+                // Insert your code here
+            }
+          );
         }
         );
         //login success
