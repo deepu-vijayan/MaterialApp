@@ -10,6 +10,8 @@ import { MaterialModule } from './shared/material.module';
 import { LoginComponent } from './common/login/login.component';
 import { RegisterComponent } from './common/register/register.component';
 
+import { CommonService } from  './shared/service/common.service';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { RegisterComponent } from './common/register/register.component';
     MaterialModule
 
   ],
-  providers: [],
+  providers: [
+    CommonService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

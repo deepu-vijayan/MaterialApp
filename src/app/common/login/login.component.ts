@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { CommonService } from '../../shared/service/common.service';
 
 declare var window: any;
 declare var FB: any;
@@ -12,7 +13,7 @@ declare const gapi: any;
 })
 export class LoginComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private commonService: CommonService) { }
   public auth2: any;
   private myClientId: string = '706301155849-j4p6js45av4p1vpu1mhffmfurjqgrquf.apps.googleusercontent.com';
 
@@ -39,23 +40,68 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.auth2 = gapi.auth2.init({
         client_id: '706301155849-j4p6js45av4p1vpu1mhffmfurjqgrquf.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
-        scope: 'profile email'
+        scope: 'profile email https://www.googleapis.com/auth/contacts.readonly'
       });
       this.attachSignin(document.getElementById('googleBtn'));
     });
+  }
+  fetchmail() {
+    // gapi.load('client:auth2', () => {
+    //     gapi.client.init({
+    //         apiKey: 'API_KEY use your own',
+    //         discoveryDocs: ['https://people.googleapis.com/$discovery/rest?version=v1'],
+    //         clientId: '706301155849-j4p6js45av4p1vpu1mhffmfurjqgrquf.apps.googleusercontent.com',
+    //         scope: 'profile email https://www.googleapis.com/auth/contacts.readonly'
+    //     }).then(() => {
+    //         return gapi.client.people.people.connections.list({
+    //             resourceName:'people/me',
+    //             personFields: 'emailAddresses,names'
+    //         });
+    //     }).then(
+    //         (res) => {
+    //             console.log("Res: " + JSON.stringify(res));
+    //             //this.userContacts.emit(this.transformToMailListModel(res.result));
+    //         },
+    //         error => console.log("ERROR " + JSON.stringify(error))
+    //     );
+    // });
   }
   public attachSignin(element) {
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
 
         let profile = googleUser.getBasicProfile();
+        console.log(profile);
+        let token = googleUser.getAuthResponse().id_token;
         console.log('Token || ' + googleUser.getAuthResponse().id_token);
         console.log('ID: ' + profile.getId());
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
         //YOUR CODE HERE
-
+        gapi.load('client:auth2', () => {
+          gapi.client.init({
+              apiKey: 'AIzaSyDOp177mdqgAqEREBOV8UgGwQojXDVtqLQ',
+              discoveryDocs: ['https://people.googleapis.com/$discovery/rest?version=v1'],
+              clientId: '706301155849-j4p6js45av4p1vpu1mhffmfurjqgrquf.apps.googleusercontent.com',
+              scope: 'profile email https://www.googleapis.com/auth/contacts.readonly'
+          }).then(() => {
+              return gapi.client.people.people.connections.list({
+                  resourceName:'people/me',
+                  personFields: 'names,photos,emailAddresses',
+                  sortOrder: 'LAST_MODIFIED_DESCENDING',
+                  fields: 'connections(emailAddresses,names,photos)'
+              });
+          }).then(
+              (res) => {
+                  console.log(res);
+                  let filteredResult = this.commonService.extractGoogleEmailContacts(res.result.connections);
+                  console.log(filteredResult);
+                  //this.userContacts.emit(this.transformToMailListModel(res.result));
+              },
+              error => console.log("ERROR " + JSON.stringify(error))
+          );
+      });
 
       }, (error) => {
         alert(JSON.stringify(error, undefined, 2));
