@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { CommonService } from '../../shared/service/common.service';
+import { CommonService } from '../../../core/service/common.service';
 
 declare var window: any;
 declare var FB: any;
