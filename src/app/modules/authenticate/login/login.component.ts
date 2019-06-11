@@ -3,9 +3,6 @@ import { CommonService } from '../../../core/service/common.service';
 import { WebapiService } from '../../../core/http/webapi.service';
 import { SocialApiService } from '../../../core/service/socialapi.service';
 
-
-// declare const gapi: any;
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
