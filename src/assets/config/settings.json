@@ -1,0 +1,17 @@
+{
+  "env": "",
+  "socialMediaSetting":{
+    "enableFaceBook": true,
+    "enableGoogle": true,
+    "enableLinkedin": true,
+    "enableTwitter": true
+  },
+  "faceBookCredentials": {
+    "appId": "1292363224251429",
+    "version": "v3.3"
+  },
+  "googleCredentials":{
+    "clientId": "706301155849-j4p6js45av4p1vpu1mhffmfurjqgrquf.apps.googleusercontent.com",
+    "apiKey": "AIzaSyDOp177mdqgAqEREBOV8UgGwQojXDVtqLQ"
+  }
+}

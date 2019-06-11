@@ -7,10 +7,9 @@ export class CommonService {
 
   constructor() { }
 
-  extractGoogleEmailContacts(data){
-    return data.filter( (contact) => {
-      if(contact.emailAddresses !=undefined)
-        return contact;
-    })
+  saveItem( key , data){
+    sessionStorage.setItem(key, JSON.stringify(data));
   }
+
+
 }
