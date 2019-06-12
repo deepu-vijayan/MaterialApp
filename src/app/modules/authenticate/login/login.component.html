@@ -1,10 +1,12 @@
 
 <div class="container">
+    <div><img  src="../../../../assets/img/logo.png"/></div>
     <mat-card>
-        <mat-card-header>
-            <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Welcome!</mat-card-title>
+        <mat-card-subtitle>Sign in with any of your social network account.</mat-card-subtitle>
+      </mat-card-header>
+        <mat-card-content *ngIf="settingsData">
             <!-- <mat-form-field appearance="outline">
                 <mat-label>User Name</mat-label>
                 <input matInput placeholder="User Name" >
@@ -32,22 +34,31 @@
                   <mat-icon>thumb_up_alt</mat-icon>
                   LinkedIn
               </button> -->
-              <div>
-                <button mat-stroked-button	 (click)="fbLogin();">
-                    <mat-icon>thumb_up_alt</mat-icon>
-                    Facebook
+              <div *ngIf="settingsData.socialMediaSetting.enableFaceBook">
+                <button mat-stroked-button class="fb-button"	(click)="login($event, 'facebook');">
+                    <img src="../../../../assets/icons/iconfinder_facebook.png"  alt="Facebook">
+                    Continue with Facebook
                 </button>
               </div>
-              <div>
-                <button mat-stroked-button	id="googleBtn" >
-                    <mat-icon>email</mat-icon>
-                    Google
+              <div *ngIf="settingsData.socialMediaSetting.enableLinkedin">
+                <button mat-stroked-button class="linkedin-button" (click)="login($event, 'linkedin');"	 >
+                  <img src="../../../../assets/icons/iconfinder_linkedin.png" alt="Linkedin">
+                    Continue with Linkedin
+                  </button>
+              </div>
+              <div *ngIf="settingsData.socialMediaSetting.enableGoogle">
+                <button mat-stroked-button class="google-button" #googleButton	(click)="login($event, 'google');" id="googleBtn" >
+                  <img src="../../../../assets/icons/iconfinder_Google.png"  alt="Google">
+                    Continue with Google
+                  </button>
+              </div>
+              <div *ngIf="settingsData.socialMediaSetting.enableTwitter">
+                <button mat-stroked-button class="twitter-button"	 (click)="login($event, 'twitter');">
+                  <img src="../../../../assets/icons/iconfinder_twitter.png"  alt="Twitter">
+                    Continue with Twitter
                   </button>
               </div>
         </mat-card-content>
-        <mat-card-actions>
-
-          </mat-card-actions>
     </mat-card>
 
 </div>

@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private commonService: CommonService, private webapiService: WebapiService, private socialApiService: SocialApiService) { }
   public auth2: any;
-  private myClientId: string = '706301155849-j4p6js45av4p1vpu1mhffmfurjqgrquf.apps.googleusercontent.com';
   settingsObs: any;
   settingsData:any;
   ngOnInit() {
@@ -27,8 +26,15 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.settingsObs.unsubscribe();
   }
 
-  fbLogin() {
-    this.socialApiService.signInWithFaceBook();
+  login(event, type) {
+    switch(type){
+      case "facebook":{
+        this.socialApiService.signInWithFaceBook();
+      }
+      case "google":{
+      this.socialApiService.attachSignin(event.currentTarget);
+      }
+    }
   }
 
 }

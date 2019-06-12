@@ -89,7 +89,6 @@ export class SocialApiService {
         cookiepolicy: 'single_host_origin',
         scope: 'profile email https://www.googleapis.com/auth/contacts.readonly'
       });
-      this.attachSignin(document.getElementById('googleBtn'));
     });
   }
   attachSignin(element){
