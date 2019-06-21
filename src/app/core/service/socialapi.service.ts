@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { LoginModel} from '../../shared/models/model';
 
 declare var window: any;
 declare var FB: any;
@@ -11,6 +13,7 @@ declare const gapi: any;
 export class SocialApiService {
   appSetting : any;
   auth2: any;
+  loginDataSubject = new Subject<any>();
 
   constructor() { }
 
@@ -58,10 +61,12 @@ export class SocialApiService {
         FB.api("/" + response.authResponse.userID + "/?fields=gender,email,name,id,picture,birthday", function (response) {
           console.log('api in');
           console.log(response);
-          // if (response && !response.error) {
-          //   /* handle the result */
-          // }
-          socialApi.getConnectionsFromFaceBook(userId);
+          if (response && !response.error) {
+            /* handle the result */
+            let formatedInput = socialApi.formatLoginData('fb', response);
+            console.log(formatedInput);
+          }
+          //socialApi.getConnectionsFromFaceBook(userId);
         }
         );
       }
@@ -92,19 +97,21 @@ export class SocialApiService {
     });
   }
   attachSignin(element){
+  let socialApi = this;
   this.auth2.attachClickHandler(element, {},
     (googleUser) => {
 
       let profile = googleUser.getBasicProfile();
       console.log(profile);
       let token = googleUser.getAuthResponse().id_token;
-      console.log('Token || ' + googleUser.getAuthResponse().id_token);
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+      // console.log('Token || ' + googleUser.getAuthResponse().id_token);
+      // console.log('ID: ' + profile.getId());
+      // console.log('Name: ' + profile.getName());
+      // console.log('Image URL: ' + profile.getImageUrl());
+      // console.log('Email: ' + profile.getEmail());
       //YOUR CODE HERE
-
+      let formatedInput = socialApi.formatLoginData('google',profile)
+      console.log(formatedInput);
       this.getConnectionsFromGoogle();
     }, (error) => {
       alert(JSON.stringify(error, undefined, 2));
@@ -141,5 +148,30 @@ export class SocialApiService {
       if(contact.emailAddresses !=undefined)
         return contact;
     })
+  }
+
+  formatLoginData(type:string, data){
+    switch (type) {
+      case 'fb':
+        return this.formatFbData(data)
+      case 'google':
+        return this.formatGoogleData(data)
+    }
+  }
+  formatFbData(data){
+    let formatedDetails = new LoginModel();
+    formatedDetails.email = data.email;
+    formatedDetails.name = data.name;
+    formatedDetails.socialLoginUsed = 1;
+    formatedDetails.dateOfBirth = data.birthday;
+    return formatedDetails;
+  }
+  formatGoogleData(data){
+    let formatedDetails = new LoginModel();
+    formatedDetails.email = data.getEmail();
+    formatedDetails.name = data.getName();
+    formatedDetails.socialLoginUsed = 4;
+    formatedDetails.dateOfBirth = null;
+    return formatedDetails;
   }
 }
