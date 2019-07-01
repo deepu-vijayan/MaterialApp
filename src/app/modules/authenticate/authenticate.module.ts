@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { AuthenticateRoutingModule } from './authenticate.routing.module';
-
-import { MaterialModule } from '../../shared/material.module';
+import { SharedModule } from '../sharedModule/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    AuthenticateRoutingModule,
-    MaterialModule
+    SharedModule,
+    AuthenticateRoutingModule
   ],
   declarations: [AuthenticateRoutingModule.components ],
   providers: []
