@@ -1,3 +1,4 @@
-<p>
-  icon-button works!
-</p>
+<button mat-stroked-button [ngClass]="cssClass"	(click)="onButtonClick($event)">
+    <img src="{{iconSrc}}"  alt="{{altText}}" *ngIf="iconSrc" >
+  {{label}}
+</button>

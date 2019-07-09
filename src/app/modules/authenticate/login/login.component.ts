@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.socialApiService.signInWithFaceBook();
       }
       case "google":{
-      this.socialApiService.attachSignin(event.currentTarget);
+        this.socialApiService.attachSignin(event.currentTarget);
       }
     }
   }

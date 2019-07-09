@@ -3,7 +3,10 @@
     <div><img  src="../../../../assets/img/logo.png"/></div>
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Welcome!</mat-card-title>
+        <mat-card-title>
+          Welcome!
+      </mat-card-title>
+
         <mat-card-subtitle>Sign in with any of your social network account.</mat-card-subtitle>
       </mat-card-header>
         <mat-card-content *ngIf="settingsData">
@@ -35,28 +38,24 @@
                   LinkedIn
               </button> -->
               <div *ngIf="settingsData.socialMediaSetting.enableFaceBook">
-                <button mat-stroked-button class="fb-button"	(click)="login($event, 'facebook');">
-                    <img src="../../../../assets/icons/iconfinder_facebook.png"  alt="Facebook">
-                    Continue with Facebook
-                </button>
+                <app-icon-button cssClass="fb-button" label="Continue with Facebook"
+                iconSrc="../../../../assets/icons/iconfinder_facebook.png" altText="Facebook"
+                (onClick)="login($event, 'facebook');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableLinkedin">
-                <button mat-stroked-button class="linkedin-button" (click)="login($event, 'linkedin');"	 >
-                  <img src="../../../../assets/icons/iconfinder_linkedin.png" alt="Linkedin">
-                    Continue with Linkedin
-                  </button>
+                  <app-icon-button cssClass="linkedin-button" label="Continue with Linkedin"
+                  iconSrc="../../../../assets/icons/iconfinder_linkedin.png" altText="Linkedin"
+                  (onClick)="login($event, 'linkedin');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableGoogle">
-                <button mat-stroked-button class="google-button" #googleButton	(click)="login($event, 'google');" id="googleBtn" >
-                  <img src="../../../../assets/icons/iconfinder_Google.png"  alt="Google">
-                    Continue with Google
-                  </button>
+                  <app-icon-button cssClass="google-button" label="Continue with Google"
+                  iconSrc="../../../../assets/icons/iconfinder_Google.png" altText="Google"
+                  (onClick)="login($event, 'google');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableTwitter">
-                <button mat-stroked-button class="twitter-button"	 (click)="login($event, 'twitter');">
-                  <img src="../../../../assets/icons/iconfinder_twitter.png"  alt="Twitter">
-                    Continue with Twitter
-                  </button>
+                  <app-icon-button cssClass="twitter-button" label="Continue with Twitter"
+                  iconSrc="../../../../assets/icons/iconfinder_twitter.png" altText="Twitter"
+                  (onClick)="login($event, 'twitter');"></app-icon-button>
               </div>
         </mat-card-content>
     </mat-card>
