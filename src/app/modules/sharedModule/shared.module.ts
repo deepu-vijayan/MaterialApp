@@ -13,6 +13,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { FeedbackItemComponent } from './components/feedback-item/feedback-item.component';
+import { ActionButtonComponent } from './components/action-button/action-button.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FeedbackItemComponent } from './components/feedback-item/feedback-item.
     SearchBarComponent,
     IconButtonComponent,
     RatingComponent,
-    FeedbackItemComponent
+    FeedbackItemComponent,
+    ActionButtonComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { FeedbackItemComponent } from './components/feedback-item/feedback-item.
     SearchBarComponent,
     IconButtonComponent,
     RatingComponent,
-    FeedbackItemComponent
+    FeedbackItemComponent,
+    ActionButtonComponent
   ]
 })
 export class SharedModule { }
