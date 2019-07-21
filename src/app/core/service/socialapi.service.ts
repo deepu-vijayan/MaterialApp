@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { LoginModel} from '../../shared/models/model';
 
+import {Router} from "@angular/router"
+
+
 declare var window: any;
 declare var FB: any;
 declare const gapi: any;
@@ -15,7 +18,7 @@ export class SocialApiService {
   auth2: any;
   loginDataSubject = new Subject<any>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   initializeSdk(setting){
     this.appSetting = setting;
@@ -137,6 +140,7 @@ export class SocialApiService {
               console.log(res);
               let filteredResult = this.extractGoogleEmailContacts(res.result.connections);
               console.log(filteredResult);
+              this.router.navigate(['../authenticate/invite/all'])
           },
           error => console.log("ERROR " + JSON.stringify(error))
       );

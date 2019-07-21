@@ -3,18 +3,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-invite',
+  templateUrl: './invite.component.html',
+  styleUrls: ['./invite.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class InviteComponent implements OnInit {
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(params => {
+    /*this.route.queryParamMap.subscribe(params => {
       let code = params.get("code");
-      debugger;
+      //debugger;
       let redirect_uri = encodeURI("http://localhost:4200/register");
       let your_client_id = '81wq5skgqel8r1';
       let your_client_secret = 'ee6JvNW1kQqPkSfi'
@@ -41,6 +41,6 @@ export class RegisterComponent implements OnInit {
           console.log(err);
         }
       );
-    })
+    })*/
   }
 }

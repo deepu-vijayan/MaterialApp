@@ -2,16 +2,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { InviteComponent } from './register/invite.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-
+import { InviteAllComponent } from './register/invite-all/invite-all.component';
 
 const routes: Routes = [
-{ path: 'login', component: LoginComponent },
-{ path: 'register', component: RegisterComponent },
+{ path: 'login',  pathMatch: 'full', component: LoginComponent },
+{ path: 'invite', component: InviteComponent,
+children: [
+  { path: 'all', component: InviteAllComponent }
+]
+},
 { path: '404', component: NotFoundComponent },
-{ path: '403', component: ForbiddenComponent }
+{ path: '403', component: ForbiddenComponent },
+//{ path: '', redirectTo: 'login' }
 ];
 
 @NgModule({
@@ -21,7 +26,7 @@ const routes: Routes = [
 export class AuthenticateRoutingModule {
   static components = [
     LoginComponent,
-    RegisterComponent,
+    InviteComponent,
     NotFoundComponent,
     ForbiddenComponent
   ];

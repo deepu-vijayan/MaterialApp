@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'authenticate', loadChildren: './modules/authenticate/authenticate.module#AuthenticateModule' },
   { path: '', pathMatch: 'full', redirectTo: '/authenticate/login' },
-  { path: '**', redirectTo: '/authenticate/404' },
+  //{ path: '**', redirectTo: '/authenticate/404' },
 ];
 
 @NgModule({
