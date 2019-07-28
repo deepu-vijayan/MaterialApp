@@ -2,6 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonService } from '../../../core/service/common.service';
 import { WebapiService } from '../../../core/http/webapi.service';
 import { SocialApiService } from '../../../core/service/socialapi.service';
+import { DialogComponent } from '../../sharedModule/components/dialog/dialog.component';
+
+import {Router} from "@angular/router"
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +14,7 @@ import { SocialApiService } from '../../../core/service/socialapi.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  constructor(private commonService: CommonService, private webapiService: WebapiService, private socialApiService: SocialApiService) { }
+  constructor(private router: Router, private dialog: MatDialog, private commonService: CommonService, private webapiService: WebapiService, private socialApiService: SocialApiService) { }
   public auth2: any;
   settingsObs: any;
   settingsData:any;
@@ -32,9 +36,16 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.socialApiService.signInWithFaceBook();
       }
       case "google":{
-        this.socialApiService.attachSignin(event.currentTarget);
+        this.dialog.open(DialogComponent, {
+          //hasBackdrop: false,
+          data: {
+            message: 'Error Message'
+          }
+        });
+        //this.socialApiService.attachSignin(event.currentTarget);
       }
     }
+    //this.router.navigate(['../authenticate/invite/all'])
   }
 
 }

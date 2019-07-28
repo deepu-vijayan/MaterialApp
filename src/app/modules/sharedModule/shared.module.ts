@@ -14,6 +14,7 @@ import { IconButtonComponent } from './components/icon-button/icon-button.compon
 import { RatingComponent } from './components/rating/rating.component';
 import { FeedbackItemComponent } from './components/feedback-item/feedback-item.component';
 import { ActionButtonComponent } from './components/action-button/action-button.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ActionButtonComponent } from './components/action-button/action-button.
     IconButtonComponent,
     RatingComponent,
     FeedbackItemComponent,
-    ActionButtonComponent
+    ActionButtonComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,9 @@ import { ActionButtonComponent } from './components/action-button/action-button.
     IconButtonComponent,
     RatingComponent,
     FeedbackItemComponent,
-    ActionButtonComponent
-  ]
+    ActionButtonComponent,
+    DialogComponent
+  ],
+  entryComponents: [DialogComponent]
 })
 export class SharedModule { }
