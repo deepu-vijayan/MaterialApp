@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonService } from '../../../core/service/common.service';
 import { WebapiService } from '../../../core/http/webapi.service';
 import { SocialApiService } from '../../../core/service/socialapi.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { SocialApiService } from '../../../core/service/socialapi.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  constructor(private commonService: CommonService, private webapiService: WebapiService, private socialApiService: SocialApiService) { }
+  constructor(private commonService: CommonService, private webapiService: WebapiService,
+     private socialApiService: SocialApiService, private router: Router) { }
   public auth2: any;
   settingsObs: any;
   settingsData:any;
@@ -33,6 +35,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
       case "google":{
         this.socialApiService.attachSignin(event.currentTarget);
+      }
+      case "home":{
+        this.router.navigate(['home']);
       }
     }
   }
