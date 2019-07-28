@@ -5,12 +5,14 @@ import { HomeRoutingModule } from './home.routing.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeadernavComponent } from './components/headernav/headernav.component';
 import { ContentComponent } from './components/content/content.component';
+import { SharedModule } from '../sharedModule/shared.module';
 
 @NgModule({
   declarations: [HomeComponent, SidenavComponent, HeadernavComponent, ContentComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
