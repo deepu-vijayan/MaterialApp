@@ -15,6 +15,7 @@ import { RatingComponent } from './components/rating/rating.component';
 import { FeedbackItemComponent } from './components/feedback-item/feedback-item.component';
 import { ActionButtonComponent } from './components/action-button/action-button.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     RatingComponent,
     FeedbackItemComponent,
     ActionButtonComponent,
-    DialogComponent
+    DialogComponent,
+    UserInfoComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     RatingComponent,
     FeedbackItemComponent,
     ActionButtonComponent,
-    DialogComponent
+    DialogComponent,
+    UserInfoComponent
   ],
   entryComponents: [DialogComponent]
 })

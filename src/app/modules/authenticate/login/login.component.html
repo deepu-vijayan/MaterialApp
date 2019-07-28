@@ -49,7 +49,7 @@
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableGoogle">
                   <app-icon-button cssClass="google-button" label="Continue with Google"
-                  iconSrc="../../../../assets/icons/iconfinder_Google.png" altText="Google"
+                  iconSrc="../../../../assets/icons/iconfinder_Google.png" id="googleSignInButton" altText="Google"
                   (onClick)="login($event, 'google');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableTwitter">

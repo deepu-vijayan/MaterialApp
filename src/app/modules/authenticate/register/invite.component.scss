@@ -1,25 +1,9 @@
 .container{
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .mat-card{
-      width:40%;
-      min-width: 210px;
-  }
-  .mat-form-field{
-      width:100%;
-  }
-  .mat-card-actions{
-      display: flex;
-      justify-content: flex-end;
-  }
-  .links{
-      display: flex;
-      align-items: flex-start;
-  }
-  .links div:last-child {
-      margin-left: auto;
-  }
-
+  margin: auto;
+  max-width: 99%;
+  background-color: #f2f3f7;
+}
+.mat-card{
+  box-shadow: 0 0px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }

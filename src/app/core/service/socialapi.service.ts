@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { LoginModel} from '../../shared/models/model';
-
-import {Router} from "@angular/router"
+import { CommonService } from '../service/common.service';
+import { Router } from "@angular/router"
 
 
 declare var window: any;
@@ -17,8 +17,9 @@ export class SocialApiService {
   appSetting : any;
   auth2: any;
   loginDataSubject = new Subject<any>();
+  public SIGNUP_API = new Subject<any>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private commonService: CommonService) { }
 
   initializeSdk(setting){
     this.appSetting = setting;
@@ -74,7 +75,8 @@ export class SocialApiService {
         );
       }
       else {
-        console.log('User login failed');
+        //console.log('User login failed');
+        this.commonService.HAS_ERR_MSG.next('User login failed');
       }
     }, { scope: 'public_profile,email,user_gender,user_birthday' })
   }
@@ -98,6 +100,7 @@ export class SocialApiService {
         scope: 'profile email https://www.googleapis.com/auth/contacts.readonly'
       });
     });
+
   }
   attachSignin(element){
   let socialApi = this;
@@ -105,7 +108,7 @@ export class SocialApiService {
     (googleUser) => {
 
       let profile = googleUser.getBasicProfile();
-      console.log(profile);
+      //console.log(profile);
       let token = googleUser.getAuthResponse().id_token;
       // console.log('Token || ' + googleUser.getAuthResponse().id_token);
       // console.log('ID: ' + profile.getId());
@@ -116,8 +119,18 @@ export class SocialApiService {
       let formatedInput = socialApi.formatLoginData('google',profile)
       console.log(formatedInput);
       this.getConnectionsFromGoogle();
-    }, (error) => {
-      alert(JSON.stringify(error, undefined, 2));
+    }, (errors) => {
+      let errMessage = '';
+      if(errors.error =='popup_closed_by_user')
+        errMessage = 'The user closed the popup before finishing the sign in';
+      else if(errors.error =='popupaccess_denied_closed_by_user' || errors.error =='access_denied')
+        errMessage = 'The user denied the permission';
+      else if(errors.error =='immediate_failed')
+        errMessage = 'The user denied the permission';
+      else
+        errMessage = errors.error;
+      this.commonService.HAS_ERR_MSG.next(errMessage);
+      //alert(JSON.stringify(error, undefined, 2));
     });
   }
 
@@ -137,12 +150,13 @@ export class SocialApiService {
           });
       }).then(
           (res) => {
-              console.log(res);
+              //console.log(res);
               let filteredResult = this.extractGoogleEmailContacts(res.result.connections);
-              console.log(filteredResult);
+              //console.log(filteredResult);
+              this.SIGNUP_API.next(filteredResult);
               //this.router.navigate(['../authenticate/invite/all'])
           },
-          error => console.log("ERROR " + JSON.stringify(error))
+          error => this.commonService.HAS_ERR_MSG.next(JSON.stringify(error))
       );
   });
   }

@@ -10,6 +10,7 @@ export class IconButtonComponent implements OnInit {
   @Input() altText:String;
   @Input() iconSrc:String;
   @Input() label:String;
+  @Input() id:String;
   @Output() onClick = new EventEmitter();
   constructor() { }
 
