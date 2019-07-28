@@ -4,8 +4,8 @@ import { WebapiService } from '../../../core/http/webapi.service';
 import { SocialApiService } from '../../../core/service/socialapi.service';
 import { DialogComponent } from '../../sharedModule/components/dialog/dialog.component';
 
-import {Router} from "@angular/router"
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -43,6 +43,9 @@ export class LoginComponent implements OnInit, OnDestroy {
           }
         });
         //this.socialApiService.attachSignin(event.currentTarget);
+      }
+      case "home":{
+        this.router.navigate(['home']);
       }
     }
     //this.router.navigate(['../authenticate/invite/all'])
