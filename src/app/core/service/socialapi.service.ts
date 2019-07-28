@@ -140,7 +140,7 @@ export class SocialApiService {
               console.log(res);
               let filteredResult = this.extractGoogleEmailContacts(res.result.connections);
               console.log(filteredResult);
-              this.router.navigate(['../authenticate/invite/all'])
+              //this.router.navigate(['../authenticate/invite/all'])
           },
           error => console.log("ERROR " + JSON.stringify(error))
       );
