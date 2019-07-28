@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>{{title}}</h2>
 <mat-dialog-content class="error">{{message}}</mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button (click)="closeDialog()">{{okButton}}</button>
-  <button mat-button type="button" mat-dialog-close>{{cancelButton}}</button>
+  <button mat-raised-button matDialogClose="{{okButton}}" >{{okButton}}</button>
+  <button mat-button matDialogClose="{{cancelButton}}" type="button" >{{cancelButton}}</button>
 </mat-dialog-actions>

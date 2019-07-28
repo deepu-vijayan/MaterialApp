@@ -17,8 +17,6 @@ export class DialogComponent implements OnInit {
     this.cancelButton = this.data.cancelButton ? this.data.cancelButton : 'Cancel';
     this.message = this.data.message ? this.data.message : '';
   }
-  closeDialog(){
-    this.dialogRef.close();
-  }
+
 
 }

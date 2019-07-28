@@ -36,12 +36,19 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.socialApiService.signInWithFaceBook();
       }
       case "google":{
-        this.dialog.open(DialogComponent, {
+        let dialogBox = this.dialog.open(DialogComponent, {
           //hasBackdrop: false,
           data: {
             message: 'Error Message'
           }
         });
+        dialogBox.afterClosed().subscribe(result => {
+          // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
+            console.log(result);
+            if(result =='ok'){
+              dialogBox.close();
+            }
+        })
         //this.socialApiService.attachSignin(event.currentTarget);
       }
       case "home":{
