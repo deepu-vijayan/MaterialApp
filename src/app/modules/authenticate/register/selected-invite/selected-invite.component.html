@@ -1,0 +1,17 @@
+<div class="page-content">
+
+  <app-user-info class="item"></app-user-info>
+  <div class="item">
+    <mat-selection-list #shoes>
+      <mat-list-option *ngFor="let shoe of typesOfShoes">
+        {{shoe}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div class="item button-group">
+    <app-icon-button cssClass="primary-button" label="Invite All"
+    altText="Invite All"  (onClick)="login($event, 'google');"></app-icon-button>
+    <app-icon-button cssClass="thirdary-button" label="Skip"
+    altText="Skip"  (onClick)="login($event, 'google');"></app-icon-button>
+  </div>
+</div>

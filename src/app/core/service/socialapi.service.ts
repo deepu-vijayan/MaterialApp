@@ -191,7 +191,7 @@ export class SocialApiService {
     formatedDetails.name = data.getName();
     formatedDetails.socialLoginUsed = 4;
     formatedDetails.dateOfBirth = null;
-    formatedDetails.profileImage = data.getImageUrl();
+    formatedDetails.profilePic = data.getImageUrl();
     return formatedDetails;
   }
 }

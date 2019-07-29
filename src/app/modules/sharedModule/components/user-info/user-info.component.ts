@@ -8,7 +8,7 @@ import { CommonService } from '../../../../core/service/common.service';
 })
 export class UserInfoComponent implements OnInit {
 
- public profileImage:String;
+ public profilePic:String;
  public imgName:String;
  public userName:String;
  public emailId:String;
@@ -18,11 +18,11 @@ export class UserInfoComponent implements OnInit {
   ngOnInit() {
     let basicProfileInfo = this.commonService.getBasicProfileInfo();
     if(basicProfileInfo==undefined){
-      basicProfileInfo = {email: "deepu.vijayan2007@gmail.com", name: "deepu vijayan", dateOfBirth: null, socialLoginUsed: 4, profileImage: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"};
+      basicProfileInfo = {email: "deepu.vijayan2007@gmail.com", name: "deepu vijayan", dateOfBirth: null, socialLoginUsed: 4, profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"};
     }
     this.userName = this.imgName = basicProfileInfo.name;
     this.emailId = basicProfileInfo.email;
-    this.profileImage = basicProfileInfo.profileImage;
+    this.profilePic = basicProfileInfo.profilePic;
   }
 
 }
