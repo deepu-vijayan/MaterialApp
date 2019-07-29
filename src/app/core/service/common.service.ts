@@ -8,6 +8,8 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 export class CommonService {
 
   public HAS_ERR_MSG = new BehaviorSubject<string>('');
+  public basicProfileInfo :any;
+  public connectionList: any;
 
   constructor(private dialog: MatDialog) { }
 
@@ -16,7 +18,6 @@ export class CommonService {
   }
 
   showAlertDialog(data){
-    console.log('here')
     let dialogBox = this.dialog.open(DialogComponent, {
           //hasBackdrop: false,
           data: data
@@ -25,6 +26,18 @@ export class CommonService {
       console.log(result);
       dialogBox.close();
     });
+  }
+  setBasicProfileInfo(data){
+    this.basicProfileInfo = data;
+  }
+  getBasicProfileInfo(){
+    return this.basicProfileInfo;
+  }
+  setConnectionList(data){
+    this.connectionList = data;
+  }
+  getConnectionList(){
+    return this.connectionList;
   }
 
 

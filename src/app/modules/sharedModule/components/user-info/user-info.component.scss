@@ -1,5 +1,15 @@
-.user-info-container{
-  width: 60%;
+.mat-card-header{
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  margin: 0% auto;
+  div{
+    margin-left: 2%;
+    color: #374c66;
+    .mat-card-title{
+      text-transform: capitalize;
+    }
+    .mat-card-subtitle{
+      font-size: 0.7em;
+    }
+  }
 }

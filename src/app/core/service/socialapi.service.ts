@@ -117,7 +117,7 @@ export class SocialApiService {
       // console.log('Email: ' + profile.getEmail());
       //YOUR CODE HERE
       let formatedInput = socialApi.formatLoginData('google',profile)
-      console.log(formatedInput);
+      this.commonService.setBasicProfileInfo(formatedInput);
       this.getConnectionsFromGoogle();
     }, (errors) => {
       let errMessage = '';
@@ -153,6 +153,7 @@ export class SocialApiService {
               //console.log(res);
               let filteredResult = this.extractGoogleEmailContacts(res.result.connections);
               //console.log(filteredResult);
+              this.commonService.setConnectionList(filteredResult);
               this.SIGNUP_API.next(filteredResult);
               //this.router.navigate(['../authenticate/invite/all'])
           },
@@ -190,6 +191,7 @@ export class SocialApiService {
     formatedDetails.name = data.getName();
     formatedDetails.socialLoginUsed = 4;
     formatedDetails.dateOfBirth = null;
+    formatedDetails.profileImage = data.getImageUrl();
     return formatedDetails;
   }
 }
