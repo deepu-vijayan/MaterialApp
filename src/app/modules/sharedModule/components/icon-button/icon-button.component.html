@@ -1,4 +1,4 @@
-<button mat-stroked-button [ngClass]="cssClass"	(click)="onButtonClick($event)">
+<button mat-stroked-button [id]="id" [ngClass]="cssClass"	(click)="onButtonClick($event)">
     <img src="{{iconSrc}}"  alt="{{altText}}" *ngIf="iconSrc" >
   {{label}}
 </button>

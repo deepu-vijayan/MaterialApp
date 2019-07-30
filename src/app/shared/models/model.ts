@@ -3,10 +3,12 @@ export class LoginModel {
     name: string;
     dateOfBirth: string;
     socialLoginUsed: number;
+    profilePic: string;
     constructor(){
       this.email = '';
       this.name = '';
       this.dateOfBirth = '';
       this.socialLoginUsed = 0;
+      this.profilePic = '';
     }
 }

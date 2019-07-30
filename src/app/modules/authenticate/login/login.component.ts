@@ -1,20 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,AfterViewChecked, NgZone  } from '@angular/core';
 import { CommonService } from '../../../core/service/common.service';
 import { WebapiService } from '../../../core/http/webapi.service';
 import { SocialApiService } from '../../../core/service/socialapi.service';
-import { DialogComponent } from '../../sharedModule/components/dialog/dialog.component';
 
-import { MatDialog, MatDialogRef } from '@angular/material';
+
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy,AfterViewChecked {
 
-  constructor(private router: Router, private dialog: MatDialog, private commonService: CommonService, private webapiService: WebapiService, private socialApiService: SocialApiService) { }
+  constructor(private router: Router, private commonService: CommonService, private webapiService: WebapiService, private socialApiService: SocialApiService, private zone:NgZone) { }
   public auth2: any;
   settingsObs: any;
   settingsData:any;
@@ -23,36 +22,37 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.settingsData = resp;
       this.commonService.saveItem('setting', resp);
       this.socialApiService.initializeSdk(resp);
+      setTimeout(() =>  {this.socialApiService.attachSignin(document.getElementById('googleSignInButton'));}, 1000);
     });
+  }
+  ngAfterViewChecked(){
+
   }
 
   ngOnDestroy(){
     this.settingsObs.unsubscribe();
+    this.socialApiService.SIGNUP_API.unsubscribe();
   }
 
   login(event, type) {
     switch(type){
       case "facebook":{
         this.socialApiService.signInWithFaceBook();
+        break;
       }
       case "google":{
-        let dialogBox = this.dialog.open(DialogComponent, {
-          //hasBackdrop: false,
-          data: {
-            message: 'Error Message'
+        this.socialApiService.SIGNUP_API.subscribe(data =>{
+          if (data !== '') {
+          console.log('sign up complete');
+          console.log(data);
+          this.zone.run(() =>this.router.navigate(['../authenticate/invite/all']));
           }
-        });
-        dialogBox.afterClosed().subscribe(result => {
-          // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
-            console.log(result);
-            if(result =='ok'){
-              dialogBox.close();
-            }
         })
-        //this.socialApiService.attachSignin(event.currentTarget);
+        break;
       }
       case "home":{
         this.router.navigate(['home']);
+        break;
       }
     }
     //this.router.navigate(['../authenticate/invite/all'])
