@@ -1,3 +1,4 @@
-<p>
-  nav-link works!
-</p>
+<mat-list-item (click)="onClicked()">
+  <a routerLink="/dashboard">{{link.title}}</a>
+  <mat-icon mat-list-icon>{{link.icon}}</mat-icon>
+</mat-list-item>

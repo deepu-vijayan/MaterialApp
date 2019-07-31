@@ -6,13 +6,19 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeadernavComponent } from './components/headernav/headernav.component';
 import { ContentComponent } from './components/content/content.component';
 import { SharedModule } from '../sharedModule/shared.module';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { ConnectionsPageComponent } from './components/connections/connections-page.component';
+import { PollsComponent } from './components/polls/polls.component';
 
 @NgModule({
-  declarations: [HomeComponent, SidenavComponent, HeadernavComponent, ContentComponent],
+  declarations: [HomeComponent, SidenavComponent, HeadernavComponent, 
+    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     SharedModule
-  ]
+  ],
+  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent]
 })
 export class HomeModule { }
