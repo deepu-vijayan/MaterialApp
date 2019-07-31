@@ -40,8 +40,8 @@ export class SidenavComponent implements OnInit {
   ngOnInit() {
   }
 
-  navItemClicked() {
-
+  navItemClicked(link) {
+    this.cardComponent = link.component;
   }
 
 }
