@@ -16,6 +16,7 @@ import { FeedbackItemComponent } from './components/feedback-item/feedback-item.
 import { ActionButtonComponent } from './components/action-button/action-button.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { BoldTitleComponent } from './components/bold-title/bold-title.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     FeedbackItemComponent,
     ActionButtonComponent,
     DialogComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    BoldTitleComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +45,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     ViewButtonComponent,
     TitleComponent,
     SubTitleComponent,
+    BoldTitleComponent,
     AvatarComponent,
     NavLinkComponent,
     LinkComponent,

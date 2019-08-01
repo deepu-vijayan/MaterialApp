@@ -7,7 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  content = [];
+  constructor() {
+
+    this.content = [
+      {
+        title: 'Personal',
+        subtitles: [
+          {
+            title: 'Date of birth',
+            value: '12 Jun 1995'
+          },
+          {
+            title: 'Gender',
+            value: 'Male'
+          },
+          {
+            title: 'Marital Status',
+            value: 'Single'
+          }
+        ]
+      },
+      {
+        title: 'Contact',
+        subtitles: [
+          {
+            title: 'Mobile Number',
+            value: '9633594287'
+          },
+          {
+            title: 'Email',
+            value: 'ajasmm86@gmail.com'
+          }
+        ]
+      }
+    ]
+  }
 
   ngOnInit() {
   }
