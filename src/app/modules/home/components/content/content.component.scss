@@ -1,12 +1,14 @@
 .header-wrap {
-  margin: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
   border-top: 1px solid;
 
   .content-wrap {
-    padding: 10%;
-
-    .content-details {
-    
-    }
+    padding: 4%;
   }
+
+  ::ng-deep mat-grid-tile .mat-figure {
+    justify-content: left !important;
+  }
+
 }
