@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarRatingColor } from '../../../sharedModule/components/rating/rating.component';
 
 @Component({
   selector: 'app-profile',
@@ -8,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   content = [];
+  rating:number = 3;
+  starCount:number = 5;
+  starColor:StarRatingColor = StarRatingColor.accent;
+  starColorP:StarRatingColor = StarRatingColor.primary;
+  starColorW:StarRatingColor = StarRatingColor.warn;
   constructor() {
 
     this.content = [
@@ -45,6 +51,11 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onRatingChanged(rating){
+    console.log(rating);
+    this.rating = rating;
   }
 
 }
