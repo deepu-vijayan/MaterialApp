@@ -1,3 +1,21 @@
-<p>
-  content works!
-</p>
+<div *ngFor="let mainContent of content" class="header-wrap">
+  <div class="content-wrap">
+    <div class="header-content">
+      <mat-icon mat-list-icon>person</mat-icon>
+      <app-title>
+          {{mainContent.title}}
+      </app-title>
+    </div>
+
+    <div class='content-details'>
+      <mat-grid-list cols="2" rowHeight="6em">
+        <mat-grid-tile class='test' *ngFor="let data of mainContent.subtitles" [colspan]="1">
+          <app-sub-title>
+              {{data.title}}
+            <app-bold-title class="text-left"> {{data.value}}</app-bold-title>
+          </app-sub-title>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

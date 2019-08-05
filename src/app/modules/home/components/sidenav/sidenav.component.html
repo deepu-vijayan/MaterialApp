@@ -1,13 +1,15 @@
-<nav id="sidebar" class="navbar-dark bg-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" href="#">Home page</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-  </ul>
-</nav>
+<mat-toolbar class='toolbar'>
+  <span>Pmukk</span>
+</mat-toolbar>
+<mat-sidenav-container color='primary' class = "tp-container">
+  <mat-sidenav mode = "side" opened>
+      <mat-nav-list>
+          <app-nav-link *ngFor="let link of navLinksDesktop" 
+          [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
+        </app-nav-link>
+     </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class = "tp-content">
+      <ng-container *ngComponentOutlet="cardComponent"></ng-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
