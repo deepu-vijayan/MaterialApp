@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../shared/material.module';
 
 
+
 import { ViewButtonComponent } from './components/view-button/view-button.component';
 import { TitleComponent } from './components/title/title.component';
 import { SubTitleComponent } from './components/sub-title/sub-title.component';

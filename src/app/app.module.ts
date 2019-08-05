@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -23,7 +24,9 @@ import { SharedModule } from './modules/sharedModule/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    NgScrollbarModule,
+    ScrollingModule
   ],
   providers: [
     CommonService,

@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./invite-all.component.scss']
 })
 export class InviteAllComponent implements OnInit {
-  private connectionList : any;
+  public connectionList : any;
 
   constructor(private commonService:CommonService, private router: Router) { }
 

@@ -146,13 +146,13 @@ export class SocialApiService {
               resourceName:'people/me',
               personFields: 'names,photos,emailAddresses',
               sortOrder: 'LAST_MODIFIED_DESCENDING',
-              fields: 'connections(emailAddresses,names,photos)'
+              fields: 'connections(emailAddresses,names,photos)',
+              pageSize: 2000
           });
       }).then(
           (res) => {
               //console.log(res);
               let filteredResult = this.extractGoogleEmailContacts(res.result.connections);
-              //console.log(filteredResult);
               this.commonService.setConnectionList(filteredResult);
               this.SIGNUP_API.next(filteredResult);
               //this.router.navigate(['../authenticate/invite/all'])
@@ -163,10 +163,25 @@ export class SocialApiService {
   }
 
   extractGoogleEmailContacts(data){
-    return data.filter( (contact) => {
-      if(contact.emailAddresses !=undefined)
+    let emailList:any =[];
+    let emailListWithImage:any =[];
+    data.filter( (contact) => {
+      if(contact.emailAddresses !=undefined && contact.names !=undefined){
+        emailList.push({
+          fromAppuserId: 0,
+          toEmail: contact.emailAddresses[0]['value']
+        });
+        emailListWithImage.push({
+          fromAppuserId: 0,
+          toEmail: contact.emailAddresses[0]['value'],
+          profilePic: contact.photos[0]['url'],
+          name: contact.names[0]['displayName']
+        });
         return contact;
+      }
     })
+
+    return emailListWithImage;
   }
 
   formatLoginData(type:string, data){

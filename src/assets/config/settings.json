@@ -13,5 +13,9 @@
   "googleCredentials":{
     "clientId": "706301155849-j4p6js45av4p1vpu1mhffmfurjqgrquf.apps.googleusercontent.com",
     "apiKey": "AIzaSyDOp177mdqgAqEREBOV8UgGwQojXDVtqLQ"
+  },
+  "googleCredentialsP":{
+    "clientId": "467264229972-78bf7fj2ra0bd3ds8bjbfeig5e48c3ag.apps.googleusercontent.com",
+    "apiKey": "AIzaSyDE0gHL41AfffMN9iR6SEehEgRHdcCtT1I"
   }
 }

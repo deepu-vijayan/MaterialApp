@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SocialApiService } from './social-api.service';
+import { SocialApiService } from './socialapi.service';
 
 describe('SocialApiService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
