@@ -1,38 +1,18 @@
 <div class="page-content">
 
   <app-user-info class="item"></app-user-info>
-  <div class="item">
+  <div class="item searchContainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Search all friends</mat-label>
+        <input matInput placeholder="Search all friends"  [(ngModel)]="SearchField">
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  <div class="item margin-bottom-0">
 
-     <!--<mat-selection-list >
-        <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="{{connectionList.length}}" >
-            <ng-container>
-      <mat-list-option *cdkVirtualFor="let connection of connectionList">
-        <img matListAvatar src="{{connection.profilePic}}" alt="{{connection.name}}">
-        <h3 matLine> {{connection.name}} </h3>
-        <p matLine>
-          <span> {{connection.toEmail}} </span>
-        </p>
-      </mat-list-option>
-      <mat-divider></mat-divider>
-    </ng-container>
-  </cdk-virtual-scroll-viewport>
-</mat-selection-list>
--->
-
-  <cdk-virtual-scroll-viewport ngScrollbarView itemSize="{{connectionList.length}}" class="example-viewport">
-      <div >
-          <mat-selection-list >
-              <mat-list-option *cdkVirtualFor="let connection of connectionList" class="list">
-                  <img matListAvatar src="{{connection.profilePic}}" alt="{{connection.name}}">
-                  <h3 matLine> {{connection.name}} </h3>
-                  <p matLine>
-                    <span> {{connection.toEmail}} </span>
-                  </p>
-              </mat-list-option>
-          </mat-selection-list>
-
-       </div>
-       </cdk-virtual-scroll-viewport>
+    <div class="content-container">
+      <app-friends-list [friendsList]="connectionList" [searchBy]="SearchField"></app-friends-list>
+    </div>
 
   </div>
   <div class="item button-group">

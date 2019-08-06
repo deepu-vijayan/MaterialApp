@@ -5,11 +5,13 @@ import { InviteAllComponent } from './register/invite-all/invite-all.component';
 import { HeaderComponent } from './register/header/header.component';
 import { FooterComponent } from './register/footer/footer.component';
 import { SelectedInviteComponent } from './register/selected-invite/selected-invite.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     SharedModule,
-    AuthenticateRoutingModule
+    AuthenticateRoutingModule,
+    FormsModule
   ],
   declarations: [AuthenticateRoutingModule.components, InviteAllComponent, HeaderComponent, FooterComponent, SelectedInviteComponent ],
   providers: []

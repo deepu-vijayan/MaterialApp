@@ -18,7 +18,18 @@ import { ActionButtonComponent } from './components/action-button/action-button.
 import { DialogComponent } from './components/dialog/dialog.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { BoldTitleComponent } from './components/bold-title/bold-title.component';
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
+import { ArrayFilterPipe } from './pipes/arrayFilter.pipe';
 
+
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  wheelPropagation: true
+};
 @NgModule({
   declarations: [
     ViewButtonComponent,
@@ -34,11 +45,14 @@ import { BoldTitleComponent } from './components/bold-title/bold-title.component
     ActionButtonComponent,
     DialogComponent,
     UserInfoComponent,
-    BoldTitleComponent
+    BoldTitleComponent,
+    FriendsListComponent,
+    ArrayFilterPipe
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    PerfectScrollbarModule
   ],
   exports: [
     CommonModule,
@@ -56,8 +70,16 @@ import { BoldTitleComponent } from './components/bold-title/bold-title.component
     FeedbackItemComponent,
     ActionButtonComponent,
     DialogComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    FriendsListComponent
+
   ],
-  entryComponents: [DialogComponent]
+  entryComponents: [DialogComponent],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ]
 })
 export class SharedModule { }

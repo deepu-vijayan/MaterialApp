@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from '../../../../core/service/common.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-selected-invite',
   templateUrl: './selected-invite.component.html',
@@ -11,7 +12,9 @@ export class SelectedInviteComponent implements OnInit {
 
   constructor(private commonService:CommonService, private router: Router) { }
 
-  public connectionList: any;
+  public connectionList: any[];
+  SearchField:string ='';
+
 
   ngOnInit() {
     this.connectionList = this.commonService.getConnectionList();

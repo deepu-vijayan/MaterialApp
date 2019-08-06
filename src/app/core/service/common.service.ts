@@ -9,7 +9,7 @@ export class CommonService {
 
   public HAS_ERR_MSG = new BehaviorSubject<string>('');
   public basicProfileInfo :any;
-  public connectionList: any;
+  public connectionList: any[];
 
   constructor(private dialog: MatDialog) { }
 
