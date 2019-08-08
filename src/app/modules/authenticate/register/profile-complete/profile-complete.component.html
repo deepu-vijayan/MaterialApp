@@ -1,0 +1,16 @@
+<div class="page-content">
+  <app-user-info class="item"></app-user-info>
+  <app-title class="item">
+    You're almost done !
+  </app-title>
+  <app-sub-title >Create your Profile ID</app-sub-title>
+  <div class="item margin-bottom-0">
+    <mat-form-field appearance="outline">
+      <mat-label>Profile ID</mat-label>
+      <input matInput placeholder="Profile ID"  [(ngModel)]="profileId">
+      <mat-icon matSuffix color="green">done</mat-icon>
+    </mat-form-field>
+  </div>
+  <app-sub-title >Your app URL:http://ratemeio/{{profileId}}</app-sub-title>
+  <div class="item margin-bottom-0 registrationComplete"></div>
+</div>

@@ -94,5 +94,8 @@ export class SelectedInviteComponent implements OnInit {
       ];
     }
   }
+  sendInvite(){
+    this.router.navigate(['../authenticate/invite/complete'])
+  }
 
 }

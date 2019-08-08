@@ -1,0 +1,27 @@
+.page-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10% 0%;
+  .item{
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+  }
+  app-sub-title{
+    text-align: center;
+  }
+  .success{
+    color: green;
+  }
+  .margin-bottom-0{
+    margin-bottom: 0%;
+  }
+  .registrationComplete{
+    position: absolute;
+    background: url('../../../../../assets/img/sm/celebration.png') center center no-repeat;
+    width: 95%;
+    min-height: 240px;
+    bottom: -150px;
+  }
+}

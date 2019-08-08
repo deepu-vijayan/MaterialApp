@@ -39,17 +39,17 @@
               </button> -->
               <div *ngIf="settingsData.socialMediaSetting.enableFaceBook">
                 <app-icon-button cssClass="fb-button" label="Continue with Facebook"
-                iconSrc="../../../../assets/icons/iconfinder_facebook.png" altText="Facebook"
+                iconSrc="../../../../assets/icons/sm/facebook-icon.png" altText="Facebook"
                 (onClick)="login($event, 'facebook');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableLinkedin">
                   <app-icon-button cssClass="linkedin-button" label="Continue with Linkedin"
-                  iconSrc="../../../../assets/icons/iconfinder_linkedin.png" altText="Linkedin"
+                  iconSrc="../../../../assets/icons/sm/linkedin.png" altText="Linkedin"
                   (onClick)="login($event, 'linkedin');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableGoogle">
                   <app-icon-button cssClass="google-button" label="Continue with Google"
-                  iconSrc="../../../../assets/icons/iconfinder_Google.png" id="googleSignInButton" altText="Google"
+                  iconSrc="../../../../assets/icons/sm/google-icon.png" id="googleSignInButton" altText="Google"
                   (onClick)="login($event, 'google');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableTwitter">
