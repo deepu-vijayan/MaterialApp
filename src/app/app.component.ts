@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { CommonService } from '../app/core/service/common.service';
 
@@ -7,7 +7,7 @@ import { CommonService } from '../app/core/service/common.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'MaterialApp';
   constructor(private commonService: CommonService) {
 
@@ -20,5 +20,8 @@ export class AppComponent implements OnInit {
         });
       }
     });
+  }
+  ngOnDestroy(){
+    this.commonService.HAS_ERR_MSG.unsubscribe();
   }
 }

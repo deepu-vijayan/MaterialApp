@@ -1,0 +1,28 @@
+.mat-toolbar {
+  background: #fff;
+  padding: 0px;
+  .container{
+    height: 60px;
+    width: 90%;
+    margin: 0 auto;
+    .search-panel{
+      .mat-form-field{
+        font-size: 0.6em;
+        width: 80%;
+      }
+    }
+    .tools{
+      .notify{
+        margin-top: 3%;
+      }
+
+    }
+  }
+}
+.logo img{
+  max-width: 55%;
+}
+
+:host ::ng-deep .mat-form-field-wrapper{
+  padding-bottom: 0;
+}

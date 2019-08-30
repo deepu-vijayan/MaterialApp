@@ -10,14 +10,18 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { ConnectionsPageComponent } from './components/connections/connections-page.component';
 import { PollsComponent } from './components/polls/polls.component';
+import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-  declarations: [HomeComponent, SidenavComponent, HeadernavComponent, 
+  declarations: [HomeComponent, SidenavComponent, HeadernavComponent,
     ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    FlexLayoutModule
   ],
   entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent]
 })

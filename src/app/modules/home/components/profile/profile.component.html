@@ -1,10 +1,63 @@
-<mat-card class="example-card">
-  <mat-card-content>
-    <app-user-info>
-            <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
-            (ratingUpdated)="onRatingChanged($event)">
-          </mat-star-rating>
-    </app-user-info>
-    <app-content [content]="content"></app-content>
+<mat-card  fxLayout="column">
+  <mat-card-content  fxLayout="column">
+    <div fxLayout="row wrap" class="padding-vertical">
+      <div fxFlex="25" fxLayoutAlign="center center">
+        <app-avatar imgSize="160" imgSrc="{{profilePic}}" imgName="{{userName}}"></app-avatar>
+      </div>
+      <div fxFlex="75" fxLayout="column">
+        <div fxLayout="row wrap">
+          <div fxFlex="55" fxLayout="column" fxLayoutAlign="start starts">
+              <app-title customeClassName="font-16 user-name">{{userName}}</app-title>
+              <mat-card-subtitle>{{designation}}</mat-card-subtitle>
+          </div>
+          <div fxFlex="45" fxLayout="column">
+            <div fxLayout="row">
+                <button mat-stroked-button class="icon-only">
+                    <mat-icon>share</mat-icon>
+                </button>
+                <app-icon-button cssClass="secondary-button" label="Edit Profile" altText="Edit Profile" ></app-icon-button>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="55" fxLayout="column" >
+              <div fxLayout="row" >
+                    <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
+                    (ratingUpdated)="onRatingChanged($event)">
+                  </mat-star-rating>
+              </div>
+            </div>
+            <div fxFlex="45" fxLayout="column">
+              <div fxLayout="row wrap" fxLayoutAlign="start  space-around">
+                  <button mat-stroked-button class="icon-only-social">
+                      <img src="../../../../../assets/icons/sm/facebook-icon.png">
+                  </button>
+                  <button mat-stroked-button class="icon-only-social">
+                      <img src="../../../../../assets/icons/sm/linkedin.png">
+                  </button>
+                  <button mat-stroked-button class="icon-only-social">
+                      <img src="../../../../../assets/icons/sm/google-icon.png">
+                  </button>
+                  <button mat-stroked-button class="icon-only-social">
+                      <img src="../../../../../assets/icons/iconfinder_twitter.png">
+                  </button>
+                  <button mat-stroked-button class="icon-only-social">
+                      <mat-icon>public</mat-icon>
+                  </button>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row wrap" class="padding-top">
+            <div fxFlex="80" fxLayout="row wrap" fxLayoutAlign="space-between">
+            <app-profile-statistics value="333" materialIcon="supervisor_account" label="Connections" ></app-profile-statistics>
+            <app-profile-statistics value="3,545" materialIcon="trending_up" label="Rating Received" ></app-profile-statistics>
+            <app-profile-statistics value="353" materialIcon="remove_red_eye" label="Views" ></app-profile-statistics>
+          </div>
+          </div>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <app-content [content]="content" fxFlex="100"></app-content>
+    </div>
   </mat-card-content>
 </mat-card>

@@ -11,7 +11,7 @@
   <div class="item margin-bottom-0">
 
     <div class="content-container">
-      <app-friends-list [friendsList]="connectionList" [searchBy]="SearchField"></app-friends-list>
+      <app-friends-list [friendsList]="connectionList" [searchBy]="SearchField" (onSelectedFromList)="selectedItems($event)"></app-friends-list>
     </div>
 
   </div>

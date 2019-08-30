@@ -8,7 +8,7 @@
   <app-sub-title subClass="dark-bold">connection from google</app-sub-title>
   <div class="item button-group">
     <app-icon-button cssClass="primary-button" label="Invite All"
-    altText="Invite All" ></app-icon-button>
+    altText="Invite All" (onClick)="inviteAll();"></app-icon-button>
     <app-icon-button cssClass="secondary-button" label="Select and Invite"
     altText="Select and Invite"  (onClick)="selectedInvite();"></app-icon-button>
     <app-icon-button cssClass="thirdary-button" label="Skip"

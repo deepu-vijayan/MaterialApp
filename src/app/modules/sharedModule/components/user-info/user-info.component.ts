@@ -12,10 +12,16 @@ export class UserInfoComponent implements OnInit {
  public imgName:String;
  public userName:String;
  public emailId:String;
-
+ public size:string;
+ @Input() imgSize:string;
   constructor(private commonService:CommonService) { }
 
   ngOnInit() {
+    if(this.imgSize ==undefined || this.imgSize ==null){
+      this.size = '40';
+    } else{
+      this.size = this.imgSize;
+    }
     let basicProfileInfo = this.commonService.getBasicProfileInfo();
     if(basicProfileInfo==undefined){
       basicProfileInfo = {email: "deepu.vijayan2007@gmail.com", name: "deepu vijayan", dateOfBirth: null, socialLoginUsed: 4, profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"};

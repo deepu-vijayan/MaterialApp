@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../shared/material.module';
 
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ViewButtonComponent } from './components/view-button/view-button.component';
 import { TitleComponent } from './components/title/title.component';
@@ -27,10 +27,14 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { TextboxComponent } from './components/textbox/textbox.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ProfileStatisticsComponent } from './components/profile-statistics/profile-statistics.component';
+import { HeadingIconComponent } from './components/heading-icon/heading-icon.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelPropagation: true
 };
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ViewButtonComponent,
@@ -49,12 +53,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BoldTitleComponent,
     FriendsListComponent,
     ArrayFilterPipe,
-    TextboxComponent
+    TextboxComponent,
+    LoaderComponent,
+    ProfileStatisticsComponent,
+    HeadingIconComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    FlexLayoutModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -73,8 +82,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ActionButtonComponent,
     DialogComponent,
     UserInfoComponent,
-    FriendsListComponent
-
+    FriendsListComponent,
+    LoaderComponent,
+    ProfileStatisticsComponent,
+    HeadingIconComponent
   ],
   entryComponents: [DialogComponent],
   providers: [

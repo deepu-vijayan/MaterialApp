@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from '../../../../core/service/common.service';
-
+import { WebapiService } from '../../../../core/http/webapi.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -10,14 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SelectedInviteComponent implements OnInit {
 
-  constructor(private commonService:CommonService, private router: Router) { }
+  constructor(private commonService:CommonService, private router: Router, private webapiService: WebapiService) { }
 
   public connectionList: any[];
+  public selectedContacts :any[]=[];
   SearchField:string ='';
 
 
   ngOnInit() {
-    this.connectionList = this.commonService.getConnectionList();
+    this.connectionList = this.commonService.getConnectionDetailList();
     if(this.connectionList == undefined){
         this.connectionList = [{
           "fromAppuserId": "0",
@@ -94,8 +95,30 @@ export class SelectedInviteComponent implements OnInit {
       ];
     }
   }
+  selectedItems(data){
+    this.selectedContacts = [];
+    data.filter( (contact) => {
+      if(contact.fromAppuserId !=undefined && contact.toEmail !=undefined){console.log(contact);
+        this.selectedContacts.push({
+          fromAppuserId: contact.fromAppuserId,
+          toEmail: contact.toEmail
+        });
+      }
+    });
+  }
   sendInvite(){
-    this.router.navigate(['../authenticate/invite/complete'])
+    //this.commonService.getConnectionList();
+    this.webapiService.connectUserApi(this.selectedContacts).subscribe(
+      data  => {
+
+        console.log("POST connectUserApi Request is successful ", data);
+        this.router.navigate(['../authenticate/invite/complete']);
+
+      },
+      error  => {
+        let errorMessage = 'Please try again'
+        this.commonService.HAS_ERR_MSG.next(errorMessage);
+      });
   }
 
 }

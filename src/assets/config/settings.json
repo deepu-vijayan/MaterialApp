@@ -1,5 +1,7 @@
 {
-  "env": "",
+  "env": "dev",
+  "devT" : "http://13.235.98.14:30689/",
+  "dev": "https://pmukk.com/rappapi/",
   "socialMediaSetting":{
     "enableFaceBook": true,
     "enableGoogle": true,
@@ -7,6 +9,10 @@
     "enableTwitter": true
   },
   "faceBookCredentials": {
+    "appId": "2407020216222254",
+    "version": "v3.3"
+  },
+  "faceBookCredentialsD": {
     "appId": "1292363224251429",
     "version": "v3.3"
   },

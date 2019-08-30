@@ -1,6 +1,81 @@
-.mat-card-title{
+
+.defaultClass{
   margin: 2% auto ;
   text-align: center;
   color: #374c67;
   font-weight: bold;
+  font-size: 14px;
+}
+.font-14{
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.27px;
+  color: #374c67;
+}
+.font-14-bold{
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.23px;
+  color: #374c67;
+}
+.font-16{
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.27px;
+  color: #374c67;
+  padding: 15px 0;
+}
+.font-18{
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #374c67;
+}
+.font-22{
+  font-size: 22px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.37px;
+  color: #374c67;
+}
+.font-26{
+  font-size: 26px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.43px;
+  text-align: center;
+  color: #374c67;
+}
+.inactive{
+  font-weight: normal;
+  letter-spacing: 0.23px;
+  color: #7b91af;
+}
+.field-value{
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: 0.22px;
+  color: #7b91af;
+}
+.user-name{
+  line-height: 2;
+  text-transform: capitalize;
 }

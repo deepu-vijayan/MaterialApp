@@ -5,9 +5,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 import { CommonService } from './core/service/common.service';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
@@ -23,11 +23,12 @@ import { SharedModule } from './modules/sharedModule/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
     NgScrollbarModule,
-    ScrollingModule
+    ScrollingModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [
     CommonService,

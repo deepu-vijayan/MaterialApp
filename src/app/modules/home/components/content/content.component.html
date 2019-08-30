@@ -1,8 +1,33 @@
-<div *ngFor="let mainContent of content" class="header-wrap">
+<div fxLayout="row" *ngFor="let mainContent of content" class="header-wrap">
+    <div fxFlex="25" fxLayoutAlign="center start">
+        <app-heading-icon materialIcon="person" *ngIf="mainContent.title=='Personal'"></app-heading-icon>
+        <app-heading-icon materialIcon="work" *ngIf="mainContent.title=='Work Experience'"></app-heading-icon>
+        <app-heading-icon materialIcon="call" *ngIf="mainContent.title=='Contact'"></app-heading-icon>
+    </div>
+    <div fxFlex="75" fxLayout="column">
+        <app-title customeClassName="font-18">
+            {{mainContent.title}}
+        </app-title>
+        <div class='content-details' fxLayout="row wrap">
+          <!-- <div fxLayout="row" fxLayout.lt-md="column"  > -->
+            <ng-container  *ngFor="let data of mainContent.subtitles;let index = index" > <!--  -->
+              <div  fxLayout="column" >
+                <app-title customeClassName="field-value">{{data.title}}</app-title>
+                <app-title customeClassName="font-14-bold">{{data.value}}</app-title>
+
+              </div>
+            </ng-container>
+          <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+
+<!-- <div *ngFor="let mainContent of content" class="header-wrap">
   <div class="content-wrap">
     <div class="header-content">
-      <mat-icon mat-list-icon>person</mat-icon>
-      <app-title>
+      <mat-icon mat-list-icon >person</mat-icon>
+      <app-title customeClassName="font-18">
           {{mainContent.title}}
       </app-title>
     </div>
@@ -10,7 +35,7 @@
     <div class='content-details'>
       <mat-grid-list cols="2" rowHeight="6em">
         <mat-grid-tile class='test' *ngFor="let data of mainContent.subtitles" [colspan]="1">
-          <app-sub-title>
+          <app-sub-title >
               {{data.title}}
             <app-bold-title class="text-left"> {{data.value}}</app-bold-title>
           </app-sub-title>
@@ -18,4 +43,4 @@
       </mat-grid-list>
     </div>
   </div>
-</div>
+</div> -->

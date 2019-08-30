@@ -1,7 +1,7 @@
 <perfect-scrollbar class="scroll-container" fxFlex="auto" [config]="config" [scrollIndicators]="true">
   <div class="scrollable-content">
-    <mat-selection-list >
-        <mat-list-option *ngFor="let connection of (friendsList | arrayfilter:searchBy)" class="list">
+    <mat-selection-list  #selected  [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
+        <mat-list-option *ngFor="let connection of (friendsList | arrayfilter:searchBy)" class="list" [value]="connection">
             <img matListAvatar src="{{connection.profilePic}}" alt="{{connection.name}}">
             <h3 matLine> {{connection.name}} </h3>
             <p matLine>

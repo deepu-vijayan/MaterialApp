@@ -3,7 +3,7 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { LoginModel} from '../../shared/models/model';
 import { CommonService } from '../service/common.service';
 import { Router } from "@angular/router"
-
+import { WebapiService } from '../http/webapi.service';
 
 declare var window: any;
 declare var FB: any;
@@ -19,7 +19,7 @@ export class SocialApiService {
   loginDataSubject = new Subject<any>();
   public SIGNUP_API = new Subject<any>();
 
-  constructor(private router: Router, private commonService: CommonService) { }
+  constructor(private router: Router, private commonService: CommonService,private webapiService: WebapiService) { }
 
   initializeSdk(setting){
     this.appSetting = setting;
@@ -77,6 +77,7 @@ export class SocialApiService {
       else {
         //console.log('User login failed');
         this.commonService.HAS_ERR_MSG.next('User login failed');
+        this.commonService.hideLoading();
       }
     }, { scope: 'public_profile,email,user_gender,user_birthday' })
   }
@@ -87,7 +88,7 @@ export class SocialApiService {
       {},
       function(response) {
         console.log('friends in');
-        console.log(response);
+        console.log(response);this.commonService.hideLoading();
       }
     );
   }
@@ -116,9 +117,21 @@ export class SocialApiService {
       // console.log('Image URL: ' + profile.getImageUrl());
       // console.log('Email: ' + profile.getEmail());
       //YOUR CODE HERE
-      let formatedInput = socialApi.formatLoginData('google',profile)
-      this.commonService.setBasicProfileInfo(formatedInput);
-      this.getConnectionsFromGoogle();
+      let formatedInput = socialApi.formatLoginData('google',profile);
+      this.webapiService.registerApi(formatedInput).subscribe(
+        data  => {
+
+          console.log("POST Request is successful ", data);
+          if(data['appUserId'] != null && data['appUserId'] != undefined){
+            formatedInput.appUserId = data['appUserId'];
+            this.commonService.setBasicProfileInfo(formatedInput);
+            this.getConnectionsFromGoogle();
+          }
+        },
+        error  => {
+          let errorMessage = 'Please try again'
+          this.commonService.HAS_ERR_MSG.next(errorMessage);
+        })
     }, (errors) => {
       let errMessage = '';
       if(errors.error =='popup_closed_by_user')
@@ -165,14 +178,15 @@ export class SocialApiService {
   extractGoogleEmailContacts(data){
     let emailList:any =[];
     let emailListWithImage:any =[];
+    let profileInfo = this.commonService.getBasicProfileInfo();
     data.filter( (contact) => {
       if(contact.emailAddresses !=undefined && contact.names !=undefined){
         emailList.push({
-          fromAppuserId: 0,
+          fromAppuserId: profileInfo.appUserId,
           toEmail: contact.emailAddresses[0]['value']
         });
         emailListWithImage.push({
-          fromAppuserId: 0,
+          fromAppuserId: profileInfo.appUserId,
           toEmail: contact.emailAddresses[0]['value'],
           profilePic: contact.photos[0]['url'],
           name: contact.names[0]['displayName']
@@ -180,8 +194,8 @@ export class SocialApiService {
         return contact;
       }
     })
-
-    return emailListWithImage;
+    this.commonService.setConnectionDetailList(emailListWithImage);
+    return emailList;
   }
 
   formatLoginData(type:string, data){
@@ -207,6 +221,7 @@ export class SocialApiService {
     formatedDetails.socialLoginUsed = 4;
     formatedDetails.dateOfBirth = null;
     formatedDetails.profilePic = data.getImageUrl();
+    formatedDetails.designation = null;
     return formatedDetails;
   }
 }

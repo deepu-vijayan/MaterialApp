@@ -3,7 +3,7 @@
     <div><img  src="../../../../assets/img/logo.png"/></div>
     <mat-card>
       <mat-card-header>
-        <app-title>
+        <app-title class="item" customeClassName="font-26">
             Welcome!
       </app-title>
 
@@ -48,7 +48,7 @@
                   (onClick)="login($event, 'linkedin');"></app-icon-button>
               </div>
               <div *ngIf="settingsData.socialMediaSetting.enableGoogle">
-                  <app-icon-button cssClass="google-button" label="Continue with Google"
+                  <app-icon-button cssClass="google-button" #googleButton label="Continue with Google"
                   iconSrc="../../../../assets/icons/sm/google-icon.png" id="googleSignInButton" altText="Google"
                   (onClick)="login($event, 'google');"></app-icon-button>
               </div>

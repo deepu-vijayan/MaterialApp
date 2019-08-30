@@ -1,15 +1,26 @@
-<mat-toolbar class='toolbar'>
-  <span>Pmukk</span>
-</mat-toolbar>
-<mat-sidenav-container color='primary' class = "tp-container">
-  <mat-sidenav mode = "side" opened>
+
+ <!-- <mat-sidenav-container color='primary' fxLayout="row" class = "tp-container">
+  <mat-sidenav mode = "side" opened fxFlex="20" fxLayoutAlign="start center">
       <mat-nav-list>
-          <app-nav-link *ngFor="let link of navLinksDesktop" 
+          <app-nav-link *ngFor="let link of navLinksDesktop"
           [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
         </app-nav-link>
      </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content class = "tp-content">
+  <mat-sidenav-content  fxFlex="80" fxLayoutAlign="start center">
       <ng-container *ngComponentOutlet="cardComponent"></ng-container>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+
+<mat-sidenav-container color='primary' class = "tp-container">
+    <mat-sidenav mode = "side" opened>
+        <mat-nav-list>
+            <app-nav-link *ngFor="let link of navLinksDesktop"
+            [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
+          </app-nav-link>
+       </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class = "tp-content">
+        <ng-container *ngComponentOutlet="cardComponent"></ng-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

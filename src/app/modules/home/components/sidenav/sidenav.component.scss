@@ -1,31 +1,22 @@
-.toolbar {
-    background: #fff;
-    color: rgb(14, 12, 12);
-  }
-
 .tp-container {
-    position: absolute;
-    top:10%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: hsl(0, 0%, 98%);
-    margin-left:10%;
-    margin-right: 10%;
- }
- .tp-section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
-    width:100px;   
- }
+  position: absolute;
+  top:12%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: hsl(0, 0%, 98%);
+  width: 90%;
+  margin: 0 auto;
+  //margin:0 10%;
+}
+
 .tp-content {
-    background-color: #eee
- }
- .filler {
-    flex: 1 1 auto;
- }
- .gap {
-    margin-right: 10px;
- }
+  background-color: #eee;
+  width: 80%;
+}
+
+
+.mat-sidenav{
+  width: 20%;
+  border: 0px;
+}
