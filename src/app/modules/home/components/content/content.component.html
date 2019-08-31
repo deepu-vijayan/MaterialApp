@@ -8,7 +8,7 @@
         <app-title customeClassName="font-18">
             {{mainContent.title}}
         </app-title>
-        <div class='content-details' fxLayout="row wrap">
+        <div class='content-details' fxLayout="row wrap" fxLayout.lt-md="column">
           <!-- <div fxLayout="row" fxLayout.lt-md="column"  > -->
             <ng-container  *ngFor="let data of mainContent.subtitles;let index = index" > <!--  -->
               <div  fxLayout="column" >

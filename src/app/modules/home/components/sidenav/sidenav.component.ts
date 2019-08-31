@@ -4,7 +4,8 @@ import { ProfileComponent } from '../profile/profile.component';
 import { PollsComponent } from '../polls/polls.component';
 import { RatingComponent } from '../rating/rating.component';
 import { ConnectionsPageComponent } from '../connections/connections-page.component';
-
+import { HomeComponent } from '../home/home.component';
+import { FeedbackComponent } from '../feedback/feedback.component';
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -12,17 +13,27 @@ import { ConnectionsPageComponent } from '../connections/connections-page.compon
 })
 export class SidenavComponent implements OnInit {
   navLinksDesktop = [];
-  cardComponent = ProfileComponent;
+  cardComponent = HomeComponent;
   constructor() {
     this.navLinksDesktop = [
+      {
+        title: 'Home',
+        component: HomeComponent,
+        icon: 'home'
+      },
       {
         title: 'My Profile',
         component: ProfileComponent,
         icon: 'person'
       },
       {
-        title: 'Rating & Feedback',
+        title: 'My Rating',
         component: RatingComponent,
+        icon: 'star_half'
+      },
+      {
+        title: 'Feedback',
+        component: FeedbackComponent,
         icon: 'insert_comment'
       },
       {

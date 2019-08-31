@@ -35,6 +35,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
 };
 import { FormsModule } from '@angular/forms';
+import { HorizontalSeparatorComponent } from './components/horizontal-separator/horizontal-separator.component';
+import { VerticalSeparatorComponent } from './components/vertical-separator/vertical-separator.component';
 @NgModule({
   declarations: [
     ViewButtonComponent,
@@ -56,7 +58,9 @@ import { FormsModule } from '@angular/forms';
     TextboxComponent,
     LoaderComponent,
     ProfileStatisticsComponent,
-    HeadingIconComponent
+    HeadingIconComponent,
+    HorizontalSeparatorComponent,
+    VerticalSeparatorComponent
   ],
   imports: [
     CommonModule,
@@ -85,7 +89,9 @@ import { FormsModule } from '@angular/forms';
     FriendsListComponent,
     LoaderComponent,
     ProfileStatisticsComponent,
-    HeadingIconComponent
+    HeadingIconComponent,
+    HorizontalSeparatorComponent,
+    VerticalSeparatorComponent
   ],
   entryComponents: [DialogComponent],
   providers: [

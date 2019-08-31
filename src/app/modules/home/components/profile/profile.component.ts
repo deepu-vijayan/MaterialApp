@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { StarRatingColor } from '../../../sharedModule/components/rating/rating.component';
 import { CommonService } from 'src/app/core/service/common.service';
-
+import { PerfectScrollbarConfigInterface,
+  PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +22,9 @@ export class ProfileComponent implements OnInit {
   starColor:StarRatingColor = StarRatingColor.accent;
   starColorP:StarRatingColor = StarRatingColor.primary;
   starColorW:StarRatingColor = StarRatingColor.warn;
+
+  public config: PerfectScrollbarConfigInterface = {};
+  @ViewChild(PerfectScrollbarComponent, {}) componentRef?: PerfectScrollbarComponent;
   constructor(private commonService: CommonService) {
 
     this.content = [
@@ -86,7 +90,7 @@ export class ProfileComponent implements OnInit {
     this.userName = this.imgName = basicProfileInfo.name;
     this.emailId = basicProfileInfo.email;
     this.profilePic = basicProfileInfo.profilePic;
-    this.designation = basicProfileInfo.designation;;
+    this.designation = basicProfileInfo.designation;
   }
 
   onRatingChanged(rating){

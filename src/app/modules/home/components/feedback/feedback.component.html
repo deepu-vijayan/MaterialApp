@@ -1,0 +1,28 @@
+<mat-card  fxLayout="column">
+    <mat-card-content  fxLayout="column">
+        <div fxLayout="column">
+            <div fxLayout="row"  fxLayoutAlign="start end" >
+                <app-title customeClassName="font-18">Feedbacks</app-title>
+                <app-title customeClassName="font-13 inactive">&nbsp;&nbsp;37 New Feedbacks</app-title>
+            </div>
+            <div fxLayout="row"  fxLayoutAlign="space-between center" fxLayout.lt-md="column">
+                <div class="search-panel" fxFlex="60" fxLayoutAlign="start center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Search all friends</mat-label>
+                        <input matInput placeholder="Search all friends"  [(ngModel)]="SearchField">
+                        <mat-icon matPrefix>search</mat-icon>
+                      </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <app-title customeClassName="font-13 inactive">Filter</app-title>
+                    <mat-icon>filter_list</mat-icon>
+                </div>
+            </div>
+            <div fxLayout="column" *ngFor="let feedBack of feedBackList">
+                <app-title customeClassName="font-13 inactive" class="padding-bottom">{{feedBack.feedbackOn}}</app-title>
+                <app-title customeClassName="font-14">{{feedBack.FeedbackMessage}}</app-title>
+                <app-horizontal-separator></app-horizontal-separator>
+            </div>
+        </div>
+    </mat-card-content>
+  </mat-card>

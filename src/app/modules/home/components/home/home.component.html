@@ -1,0 +1,85 @@
+<mat-card  fxLayout="column">
+    <mat-card-content  fxLayout="column">
+
+      <div fxLayout="column">
+        <div fxLayout="row"  fxLayoutAlign="space-between center" fxLayout.lt-md="column">
+            <div>
+              <app-user-info class="item"></app-user-info>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" >
+              <div>
+                <app-icon-button cssClass="thirdary-button" label="View Profile" altText="View Profile" ></app-icon-button>
+              </div>
+              <div>
+                <app-icon-button cssClass="secondary-button" label="Edit Profile" altText="Edit Profile" ></app-icon-button>
+              </div>
+            </div>
+        </div>
+        <app-horizontal-separator></app-horizontal-separator>
+        <div fxLayout="row">
+          <div fxFlex="48" fxLayout="row">
+            <div fxFlex="30">
+              <app-heading-icon  materialIcon="group" className="circleAround"></app-heading-icon>
+            </div>
+            <div fxLayout="column" fxFlex="70">
+                <app-title customeClassName="font-13">Your Connections</app-title>
+                <app-title customeClassName="font-22">1320</app-title>
+                <app-title customeClassName="font-14"><a class="hyperLink">3 New Requests</a> pending</app-title>
+                <div fxLayout="row" fxLayoutAlign="start center" >
+                  <div>
+                    <app-icon-button cssClass="thirdary-button" label="View" altText="View" ></app-icon-button>
+                  </div>
+                  <div>
+                    <app-icon-button cssClass="secondary-button" label="Invite More" altText="Invite More" ></app-icon-button>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+          <app-vertical-separator></app-vertical-separator>
+
+          <div fxFlex="48" fxLayout="row">
+              <div fxFlex="30">
+                  <app-heading-icon  materialIcon="trending_up" className="circleAround"></app-heading-icon>
+                </div>
+                <div fxLayout="column" fxFlex="70">
+                    <div>
+                      <app-title customeClassName="font-13">Your Rating</app-title>
+                      <app-title customeClassName="font-14">(1,12,111 rating)</app-title>
+                    </div>
+                    <div fxLayout="row" >
+                        <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
+                          (ratingUpdated)="onRatingChanged($event)">
+                        </mat-star-rating>
+                    </div>
+                    <div class="padding-top">
+                      <app-title customeClassName="font-14"><a class="hyperLink">30 New Feedbacks</a></app-title>
+                    </div>
+                </div>
+          </div>
+        </div>
+        <app-horizontal-separator></app-horizontal-separator>
+        <div fxLayout="row">
+        <div fxFlex="55" fxLayout="row">
+            <div fxFlex="26">
+              <app-heading-icon  materialIcon="pie_chart" className="circleAround"></app-heading-icon>
+            </div>
+            <div fxLayout="column" fxFlex="74">
+                <app-title customeClassName="font-18">Need to know a common opinion?</app-title>
+                <app-title customeClassName="font-14" class="padding-top"> Create a Private Poll to know a <br/>common opinion amoung your <br/>connected people.</app-title>
+                <div fxLayout="row" fxLayoutAlign="start center" >
+                    <app-icon-button cssClass="secondary-button no-morgin-left" label="Create a Poll" altText="Create a Poll" ></app-icon-button>
+                </div>
+                <div class="padding-top">
+                  <app-title customeClassName="font-14"><a class="hyperLink">5 New Polls from your connections</a></app-title>
+                </div>
+            </div>
+
+          </div>
+          <div fxFlex="45" >
+            <img src="../../../../../assets/img/sm/pollsimg.png" alt="polling image" />
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>

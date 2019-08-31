@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeadingIconComponent implements OnInit {
 
   @Input() materialIcon;
+  @Input() className;
   constructor() { }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './pages/home/home.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeadernavComponent } from './components/headernav/headernav.component';
@@ -12,17 +12,34 @@ import { ConnectionsPageComponent } from './components/connections/connections-p
 import { PollsComponent } from './components/polls/polls.component';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomeComponent } from './components/home/home.component';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  wheelPropagation: true
+};
 
 @NgModule({
-  declarations: [HomeComponent, SidenavComponent, HeadernavComponent,
-    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent],
+  declarations: [LayoutComponent, SidenavComponent, HeadernavComponent,
+    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     SharedModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    PerfectScrollbarModule
   ],
-  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent]
+  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ]
 })
 export class HomeModule { }

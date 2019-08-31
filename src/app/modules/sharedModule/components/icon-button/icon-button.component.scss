@@ -1,7 +1,7 @@
 .mat-stroked-button{
   margin: 10px;
-  min-width: 100%;
-  padding: 0px;
+  min-width: 90%;
+  padding: 0 10px;
 }
 .fb-button{
   border-color:#7c8eb8;
@@ -34,6 +34,18 @@
 .thirdary-button{
   color: #7f94b0;
   border-color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.2px;
+  color: #7b91af;
+  background-color: #f7f9fc;
+  padding: 9px 20px;
+  margin: 10px 10px 10px 0px;
 }
-
+.no-morgin-left{
+  margin-left: 0px;
+}
 

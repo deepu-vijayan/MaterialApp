@@ -37,27 +37,27 @@
                   <mat-icon>thumb_up_alt</mat-icon>
                   LinkedIn
               </button> -->
-              <div *ngIf="settingsData.socialMediaSetting.enableFaceBook">
+              <div *ngIf="settingsData.socialMediaSetting.enableFaceBook" class="login-button">
                 <app-icon-button cssClass="fb-button" label="Continue with Facebook"
                 iconSrc="../../../../assets/icons/sm/facebook-icon.png" altText="Facebook"
                 (onClick)="login($event, 'facebook');"></app-icon-button>
               </div>
-              <div *ngIf="settingsData.socialMediaSetting.enableLinkedin">
+              <div *ngIf="settingsData.socialMediaSetting.enableLinkedin" class="login-button">
                   <app-icon-button cssClass="linkedin-button" label="Continue with Linkedin"
                   iconSrc="../../../../assets/icons/sm/linkedin.png" altText="Linkedin"
                   (onClick)="login($event, 'linkedin');"></app-icon-button>
               </div>
-              <div *ngIf="settingsData.socialMediaSetting.enableGoogle">
+              <div *ngIf="settingsData.socialMediaSetting.enableGoogle" class="login-button">
                   <app-icon-button cssClass="google-button" #googleButton label="Continue with Google"
                   iconSrc="../../../../assets/icons/sm/google-icon.png" id="googleSignInButton" altText="Google"
                   (onClick)="login($event, 'google');"></app-icon-button>
               </div>
-              <div *ngIf="settingsData.socialMediaSetting.enableTwitter">
+              <div *ngIf="settingsData.socialMediaSetting.enableTwitter" class="login-button">
                   <app-icon-button cssClass="twitter-button" label="Continue with Twitter"
                   iconSrc="../../../../assets/icons/iconfinder_twitter.png" altText="Twitter"
                   (onClick)="login($event, 'twitter');"></app-icon-button>
               </div>
-              <div>
+              <div class="login-button">
                 <app-icon-button cssClass="twitter-button" label="Continue to home"
                 iconSrc="../../../../assets/icons/iconfinder_twitter.png" altText="home"
                 (onClick)="login($event, 'home');"></app-icon-button>
