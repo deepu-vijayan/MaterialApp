@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-link',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./link.component.scss']
 })
 export class LinkComponent implements OnInit {
-
+  @Input()  link;
+  @Output() onNavigationClicked = new EventEmitter();
   constructor() { }
-
+ 
   ngOnInit() {
+  }
+  onClicked () {
+    this.onNavigationClicked.emit(this.link);
   }
 
 }

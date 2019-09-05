@@ -1,0 +1,21 @@
+<mat-card-content>
+    <div class="search-panel" fxFlex="60" fxLayoutAlign="start center">
+        <mat-form-field appearance="outline">
+            <mat-label>Search all friends</mat-label>
+            <input matInput placeholder="Search all friends"  [(ngModel)]="SearchField">
+            <mat-icon matPrefix>search</mat-icon>
+          </mat-form-field>
+    </div>
+  </mat-card-content>
+    <mat-divider [inset]="true"></mat-divider>
+  <mat-list *ngFor="let profile of CONNECTION_LIST ">
+      <mat-list-item>
+          <app-avatar imgSrc="{{profile.profilePic}}" imgName="image"></app-avatar>
+    {{profile.name}}
+    {{profile.designation}}
+    <mat-divider [inset]="true" ></mat-divider>
+      </mat-list-item>
+  </mat-list>
+  <mat-paginator [length]="100"
+              [pageSize]="10">
+</mat-paginator>

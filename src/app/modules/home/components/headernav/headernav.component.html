@@ -11,12 +11,12 @@
     <div class="search-panel" fxFlex="60" fxLayoutAlign="start center">
         <mat-form-field appearance="outline">
             <mat-label>Search all friends</mat-label>
-            <input matInput placeholder="Search all friends"  [(ngModel)]="SearchField">
+            <input matInput placeholder="Search your connections"  [(ngModel)]="SearchField">
             <mat-icon matPrefix>search</mat-icon>
           </mat-form-field>
     </div>
     <div class="tools" fxFlex="20" fxLayout="row" fxLayoutAlign="space-evenly center">
-      <div class="notify"><mat-icon matBadge="15" >notifications</mat-icon></div>
+      <div class="notify" (click)="openModal('custom-modal-1')"><mat-icon matBadge="15" >notifications</mat-icon></div>
       <div class="notify"><mat-icon >help_outline</mat-icon></div>
       <div class="sub-menu" fxLayout="row">
         <div>
@@ -40,4 +40,12 @@
         </div>
     </div>
   </div>
+  <jw-modal id="custom-modal-1">
+    <div class="NotificationsBackground"><div class="Notifications">Notifications</div></div>
+    <div class="newbackground"><span class="new">NEW</span></div>
+    <div>
+      vishnu vishnu
+    </div>
+    <!-- <button (click)="closeModal('custom-modal-1');">Close</button> -->
+</jw-modal>
 </mat-toolbar>

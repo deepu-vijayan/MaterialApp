@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/core/service/common.service';
+import { ModalService } from 'src/app/_modal';
 
 @Component({
   selector: 'app-headernav',
@@ -8,7 +9,7 @@ import { CommonService } from 'src/app/core/service/common.service';
 })
 export class HeadernavComponent implements OnInit {
 
-  constructor(private commonService:CommonService ) { }
+  constructor(private commonService:CommonService,private modalService: ModalService ) { }
   profilePic:string ='';
   SearchField:string = '';
   userName:string = '';
@@ -20,5 +21,12 @@ export class HeadernavComponent implements OnInit {
     this.profilePic = basicProfileInfo.profilePic;
     this.userName = basicProfileInfo.name;
   }
+  openModal(id: string) {
+    this.modalService.open(id);
+}
+
+closeModal(id: string) {
+    this.modalService.close(id);
+}
 
 }

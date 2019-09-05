@@ -18,6 +18,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { ModalModule } from 'src/app/_modal';
+import { ConnectedProfilesComponent } from './components/connected-profiles/connected-profiles.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelPropagation: true
@@ -25,16 +27,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   declarations: [LayoutComponent, SidenavComponent, HeadernavComponent,
-    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent],
+    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     SharedModule,
     FormsModule,
     FlexLayoutModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    ModalModule,
   ],
-  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent],
+  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent,ConnectedProfilesComponent],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
