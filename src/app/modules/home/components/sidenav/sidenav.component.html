@@ -1,18 +1,4 @@
-
- <!-- <mat-sidenav-container color='primary' fxLayout="row" class = "tp-container">
-  <mat-sidenav mode = "side" opened fxFlex="20" fxLayoutAlign="start center">
-      <mat-nav-list>
-          <app-nav-link *ngFor="let link of navLinksDesktop"
-          [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
-        </app-nav-link>
-     </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content  fxFlex="80" fxLayoutAlign="start center">
-      <ng-container *ngComponentOutlet="cardComponent"></ng-container>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-<mat-sidenav-container color='primary' class = "tp-container">
+<!-- <mat-sidenav-container color='primary' class = "tp-container">
     <mat-sidenav mode = "side" opened>
         <mat-nav-list>
             <app-nav-link *ngFor="let link of navLinksDesktop"
@@ -23,4 +9,16 @@
     <mat-sidenav-content class = "tp-content">
         <ng-container *ngComponentOutlet="cardComponent"></ng-container>
     </mat-sidenav-content>
-  </mat-sidenav-container>
+  </mat-sidenav-container> -->
+  <div color='primary' class = "tp-container" fxLayout="row">
+    <mat-sidenav mode = "side" opened>
+        <mat-nav-list>
+            <app-nav-link *ngFor="let link of navLinksDesktop"
+            [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
+          </app-nav-link>
+       </mat-nav-list>
+    </mat-sidenav>
+    <div class = "tp-content">
+        <ng-container *ngComponentOutlet="cardComponent"></ng-container>
+    </div>
+  </div>

@@ -37,6 +37,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 import { FormsModule } from '@angular/forms';
 import { HorizontalSeparatorComponent } from './components/horizontal-separator/horizontal-separator.component';
 import { VerticalSeparatorComponent } from './components/vertical-separator/vertical-separator.component';
+
+import { RouterModule, Routes } from '@angular/router';
+import { NotificationFriendRequestComponent } from './components/notification-friend-request/notification-friend-request.component';
+const commonRoutes: Routes = [
+];
 @NgModule({
   declarations: [
     ViewButtonComponent,
@@ -60,14 +65,16 @@ import { VerticalSeparatorComponent } from './components/vertical-separator/vert
     ProfileStatisticsComponent,
     HeadingIconComponent,
     HorizontalSeparatorComponent,
-    VerticalSeparatorComponent
+    VerticalSeparatorComponent,
+    NotificationFriendRequestComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     PerfectScrollbarModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild(commonRoutes)
   ],
   exports: [
     CommonModule,
@@ -91,7 +98,8 @@ import { VerticalSeparatorComponent } from './components/vertical-separator/vert
     ProfileStatisticsComponent,
     HeadingIconComponent,
     HorizontalSeparatorComponent,
-    VerticalSeparatorComponent
+    VerticalSeparatorComponent,
+    NotificationFriendRequestComponent
   ],
   entryComponents: [DialogComponent],
   providers: [

@@ -1,0 +1,29 @@
+<!-- <div class="NotificationsBackground"><div class="Notifications">Notifications</div></div>
+            <div class="newbackground"><span class="new">NEW</span></div>
+            <div>
+              vishnu vishnu
+            </div> -->
+<div fxLayout="column" class="notification-container" fxLayoutAlign="space-around">
+  <div class="padding-container">
+    <app-title customeClassName="font-16">Notification</app-title>
+  </div>
+  <perfect-scrollbar class="scroll-container" fxFlex="auto" [config]="config" [scrollIndicators]="true">
+    <div fxLayout="column" class="notification-category-container scrollable-content" fxLayoutAlign="space-around">
+      <div class="category-head">
+        <app-title customeClassName="font-10 inactive pa">NEW</app-title>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin" *ngFor="let requests of friendRequestList">
+          <app-notification-friend-request [userDetails]="requests"></app-notification-friend-request>
+          <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
+      </div>
+      <!-- <div class="category-head">
+          <app-title customeClassName="font-10 inactive pa">EARLIER</app-title>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin" *ngFor="let requests of friendRequestList">
+            <app-notification-friend-request [userDetails]="requests"></app-notification-friend-request>
+            <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
+        </div> -->
+
+    </div>
+  </perfect-scrollbar>
+</div>

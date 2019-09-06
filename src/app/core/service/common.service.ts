@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 import { DialogComponent } from '../../modules/sharedModule/components/dialog/dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { LoginModel } from 'src/app/shared/models/model';
 @Injectable({
   providedIn: 'root'
 })

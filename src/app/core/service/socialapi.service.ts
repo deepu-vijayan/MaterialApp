@@ -123,9 +123,13 @@ export class SocialApiService {
 
           console.log("POST Request is successful ", data);
           if(data['appUserId'] != null && data['appUserId'] != undefined){
-            formatedInput.appUserId = data['appUserId'];
+            formatedInput['appUserId'] = data['appUserId'];
             this.commonService.setBasicProfileInfo(formatedInput);
-            this.getConnectionsFromGoogle();
+            if(data['alreadyRegistered'] == true){
+              this.SIGNUP_API.next({"alreadyRegistered": data['alreadyRegistered']});
+            } else{
+              this.getConnectionsFromGoogle();
+            }
           }
         },
         error  => {
@@ -215,13 +219,13 @@ export class SocialApiService {
     return formatedDetails;
   }
   formatGoogleData(data){
-    let formatedDetails = new LoginModel();
-    formatedDetails.email = data.getEmail();
-    formatedDetails.name = data.getName();
-    formatedDetails.socialLoginUsed = 4;
-    formatedDetails.dateOfBirth = null;
-    formatedDetails.profilePic = data.getImageUrl();
-    formatedDetails.designation = null;
+    let formatedDetails = {};
+    formatedDetails['email'] = data.getEmail();
+    formatedDetails['name'] = data.getName();
+    formatedDetails['socialLoginUsed'] = 4;
+    formatedDetails['dateOfBirth'] = null;
+    formatedDetails['profilePic'] = data.getImageUrl();
+    formatedDetails['designation'] = null;
     return formatedDetails;
   }
 }

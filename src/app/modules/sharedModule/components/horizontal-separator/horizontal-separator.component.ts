@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-horizontal-separator',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HorizontalSeparatorComponent implements OnInit {
 
+  @Input() customeClassName;
   constructor() { }
 
   ngOnInit() {
+    if(this.customeClassName == undefined || this.customeClassName == null){
+      this.customeClassName = 'defaultClass';
+    }
   }
 
 }

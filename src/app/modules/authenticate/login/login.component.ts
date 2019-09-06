@@ -48,7 +48,11 @@ export class LoginComponent implements OnInit, OnDestroy,AfterViewInit {
       case "google":{
         this.socialApiService.SIGNUP_API.subscribe(data =>{
           if (data !== '') {
-          this.zone.run(() =>this.router.navigate(['../authenticate/invite/all']));
+            if(data['alreadyRegistered'] !=undefined && data['alreadyRegistered'] == true){
+              this.router.navigate(['home']);
+            } else {
+              this.zone.run(() =>this.router.navigate(['../authenticate/invite/all']));
+            }
           }
           this.commonService.hideLoading();
         })

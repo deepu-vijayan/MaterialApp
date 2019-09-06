@@ -16,12 +16,12 @@
             </div>
         </div>
         <app-horizontal-separator></app-horizontal-separator>
-        <div fxLayout="row">
-          <div fxFlex="48" fxLayout="row">
+        <div fxLayout="row" fxLayout.lt-md="column">
+          <div fxFlex="48" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign.lt-md="center center">
             <div fxFlex="30">
               <app-heading-icon  materialIcon="group" className="circleAround"></app-heading-icon>
             </div>
-            <div fxLayout="column" fxFlex="70">
+            <div fxLayout="column" fxFlex="70" fxLayoutAlign.lt-md="center center">
                 <app-title customeClassName="font-13">Your Connections</app-title>
                 <app-title customeClassName="font-22">1320</app-title>
                 <app-title customeClassName="font-14"><a class="hyperLink">3 New Requests</a> pending</app-title>
@@ -36,13 +36,13 @@
             </div>
 
           </div>
-          <app-vertical-separator></app-vertical-separator>
-
-          <div fxFlex="48" fxLayout="row">
+          <app-vertical-separator fxHide.lt-md></app-vertical-separator>
+          <app-horizontal-separator fxShow.lt-md></app-horizontal-separator>
+          <div fxFlex="48" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign.lt-md="center center">
               <div fxFlex="30">
                   <app-heading-icon  materialIcon="trending_up" className="circleAround"></app-heading-icon>
                 </div>
-                <div fxLayout="column" fxFlex="70">
+                <div fxLayout="column" fxFlex="70" fxLayoutAlign.lt-md="center center">
                     <div>
                       <app-title customeClassName="font-13">Your Rating</app-title>
                       <app-title customeClassName="font-14">(1,12,111 rating)</app-title>
@@ -59,12 +59,12 @@
           </div>
         </div>
         <app-horizontal-separator></app-horizontal-separator>
-        <div fxLayout="row">
-        <div fxFlex="55" fxLayout="row">
-            <div fxFlex="26">
+        <div fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlex="55" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign.lt-md="center center">
+            <div fxFlex="26" >
               <app-heading-icon  materialIcon="pie_chart" className="circleAround"></app-heading-icon>
             </div>
-            <div fxLayout="column" fxFlex="74">
+            <div fxLayout="column" fxFlex="74" fxLayoutAlign.lt-md="center center">
                 <app-title customeClassName="font-18">Need to know a common opinion?</app-title>
                 <app-title customeClassName="font-14" class="padding-top"> Create a Private Poll to know a <br/>common opinion amoung your <br/>connected people.</app-title>
                 <div fxLayout="row" fxLayoutAlign="start center" >
@@ -76,7 +76,7 @@
             </div>
 
           </div>
-          <div fxFlex="45" >
+          <div fxFlex="45" fxLayoutAlign.lt-md="center center">
             <img src="../../../../../assets/img/sm/pollsimg.png" alt="polling image" />
           </div>
         </div>

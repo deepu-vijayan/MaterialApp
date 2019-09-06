@@ -18,16 +18,16 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-import { ModalModule } from 'src/app/_modal';
-import { ConnectedProfilesComponent } from './components/connected-profiles/connected-profiles.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelPropagation: true
 };
-
+import { ModalModule } from 'src/app/_modal';
+import { ConnectedProfilesComponent } from './components/connected-profiles/connected-profiles.component';
+import { NotificationPopupComponent } from './components/notification-popup/notification-popup.component';
 @NgModule({
   declarations: [LayoutComponent, SidenavComponent, HeadernavComponent,
-    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent],
+    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -35,9 +35,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     FlexLayoutModule,
     PerfectScrollbarModule,
-    ModalModule,
+    PerfectScrollbarModule,
+    ModalModule
   ],
-  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent,ConnectedProfilesComponent],
+  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

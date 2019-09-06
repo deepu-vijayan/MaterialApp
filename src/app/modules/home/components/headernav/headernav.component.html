@@ -1,5 +1,5 @@
-<mat-toolbar >
-  <div class="container" fxLayout="row" >
+<div class="mat-toolbar">
+  <div class="container" fxLayout="row" fxLayout.lt-md="column">
 
     <div class="logo" fxFlex="20" fxLayoutAlign="start center" >
         <div> <button mat-icon-button > <!-- (click)="toggleSidenav.emit()"-->
@@ -8,44 +8,42 @@
         </div>
       <img src="../../../../../assets/img/logo_inner.png" alt="logo" />
     </div>
-    <div class="search-panel" fxFlex="60" fxLayoutAlign="start center">
-        <mat-form-field appearance="outline">
-            <mat-label>Search all friends</mat-label>
-            <input matInput placeholder="Search your connections"  [(ngModel)]="SearchField">
-            <mat-icon matPrefix>search</mat-icon>
-          </mat-form-field>
-    </div>
-    <div class="tools" fxFlex="20" fxLayout="row" fxLayoutAlign="space-evenly center">
-      <div class="notify" (click)="openModal('custom-modal-1')"><mat-icon matBadge="15" >notifications</mat-icon></div>
-      <div class="notify"><mat-icon >help_outline</mat-icon></div>
-      <div class="sub-menu" fxLayout="row">
-        <div>
-          <app-avatar imgSrc="{{profilePic}}" imgName="{{userName}}"></app-avatar>
+    <div fxFlex="80" >
+      <div class="search-panel"  fxFlex="80" fxFlex.lt-md="60" fxLayoutAlign="start center">
+          <mat-form-field appearance="outline">
+              <mat-label>Search all friends</mat-label>
+              <input matInput placeholder="Search all friends"  [(ngModel)]="SearchField">
+              <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field>
+      </div>
+      <div class="tools" fxFlex="20" fxFlex.lt-md="40" fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div class="notify"><mat-icon matBadge="15" (click)="openModal('custom-modal-1')">notifications</mat-icon>
+          <jw-modal id="custom-modal-1">
+            <app-notification-popup></app-notification-popup>
+        </jw-modal>
         </div>
-        <div>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item disabled>
-                  <mat-icon>perm_identity</mat-icon>
-                  <span>Profile</span>
+        <div class="notify"><mat-icon >help_outline</mat-icon></div>
+        <div class="sub-menu" fxLayout="row">
+          <div>
+            <app-avatar imgSrc="{{profilePic}}" imgName="{{userName}}"></app-avatar>
+          </div>
+          <div>
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
                 </button>
-                <button mat-menu-item>
-                  <mat-icon>lock</mat-icon>
-                  <span>Logout</span>
-                </button>
-              </mat-menu>
-            </div>
-        </div>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item disabled>
+                    <mat-icon>perm_identity</mat-icon>
+                    <span>Profile</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>lock</mat-icon>
+                    <span>Logout</span>
+                  </button>
+                </mat-menu>
+              </div>
+          </div>
+      </div>
     </div>
   </div>
-  <jw-modal id="custom-modal-1">
-    <div class="NotificationsBackground"><div class="Notifications">Notifications</div></div>
-    <div class="newbackground"><span class="new">NEW</span></div>
-    <div>
-      vishnu vishnu
-    </div>
-    <!-- <button (click)="closeModal('custom-modal-1');">Close</button> -->
-</jw-modal>
-</mat-toolbar>
+</div>

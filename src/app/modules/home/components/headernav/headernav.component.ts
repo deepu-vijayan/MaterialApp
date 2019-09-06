@@ -9,7 +9,7 @@ import { ModalService } from 'src/app/_modal';
 })
 export class HeadernavComponent implements OnInit {
 
-  constructor(private commonService:CommonService,private modalService: ModalService ) { }
+  constructor(private commonService:CommonService, private modalService: ModalService  ) { }
   profilePic:string ='';
   SearchField:string = '';
   userName:string = '';
@@ -21,12 +21,13 @@ export class HeadernavComponent implements OnInit {
     this.profilePic = basicProfileInfo.profilePic;
     this.userName = basicProfileInfo.name;
   }
-  openModal(id: string) {
-    this.modalService.open(id);
-}
 
-closeModal(id: string) {
-    this.modalService.close(id);
-}
+  openModal(id: string) {
+      this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+      this.modalService.close(id);
+  }
 
 }
