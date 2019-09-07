@@ -1,15 +1,18 @@
-<mat-card  fxLayout="column">
-    <div class="connection-sidebar">
-       <div>My Connections</div>
-         <div class="invite-button">
-             <app-icon-button cssClass="secondary-button" label="Invite More People" altText="Invite More people" ></app-icon-button>
-           </div>
-       <app-link *ngFor="let link of navLinksDesktop"
-       [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
-     </app-link>
-   </div>
-     <mat-card-content class = "tp-content">
-       <!-- <ng-container *ngComponentOutlet="cardComponent"></ng-container> -->
-       <app-connected-profiles [title]="cardTitle"></app-connected-profiles>
-     </mat-card-content>
+<mat-card  fxLayout="column" class="container">
+    <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        <div class="item item-1" fxFlex="15%">
+            <app-title customeClassName="font-16">My Connections</app-title>
+            <div class="invite-button">
+                <app-icon-button cssClass="secondary-button" label="Invite More People" altText="Invite More people">
+                </app-icon-button>
+            </div>
+            <app-link *ngFor="let link of navLinksDesktop" [link]="link" (onNavigationClicked)='navItemClicked($event)'>
+            </app-link>
+        </div>
+        <div class="item item-3" fxFlex = "30%">
+            <mat-card-content class = "tp-content">
+            <app-connected-profiles [title]="cardTitle"></app-connected-profiles>
+            </mat-card-content>
+        </div>
+    </div>
    </mat-card>

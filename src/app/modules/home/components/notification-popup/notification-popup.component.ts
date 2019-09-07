@@ -29,6 +29,38 @@ export class NotificationPopupComponent implements OnInit {
         socialLoginUsed: 4,
         profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
         mutualFriends: 2
+      },
+      {
+        email: "deepu.vijayan2007@gmail.com",
+        name: "deepu vijayan",
+        dateOfBirth: null,
+        socialLoginUsed: 4,
+        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
+        mutualFriends: 8
+      },
+      {
+        email: "deepu.vijayan2007@gmail.com",
+        name: "deepu vijayan",
+        dateOfBirth: null,
+        socialLoginUsed: 4,
+        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
+        mutualFriends: 6
+      },
+      {
+        email: "deepu.vijayan2007@gmail.com",
+        name: "deepu vijayan",
+        dateOfBirth: null,
+        socialLoginUsed: 4,
+        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
+        mutualFriends: 5
+      },
+      {
+        email: "deepu.vijayan2007@gmail.com",
+        name: "deepu vijayan",
+        dateOfBirth: null,
+        socialLoginUsed: 4,
+        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
+        mutualFriends: 1
       }
     ]
   }

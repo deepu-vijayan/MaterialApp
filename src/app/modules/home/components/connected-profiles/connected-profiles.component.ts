@@ -18,37 +18,127 @@ export class ConnectedProfilesComponent implements OnInit {
   setConnectionList(){
   this.CONNECTION_LIST=[
     {
-      name : 'vishnu',
+      name : 'Vishnu',
       title : 'Friends',
       designation : 'Developer @ XYZ company',
       profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
     },
     {
-      name : 'vishnu',
+      name : 'Vishnu',
       title : 'Friends',
       designation : 'Developer @ XYZ company',
       profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
     },
     {
-      name : 'vishnu',
+      name : 'Vishnu',
       title : 'Friends',
       designation : 'Developer @ XYZ company',
       profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
     },
     {
-      name : 'vishnu',
+      name : 'Vishnu',
       title : 'Friends',
       designation : 'Developer @ XYZ company',
       profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
     },
     {
-      name : 'vishnu',
+      name : 'Vishnu',
       title : 'Friends',
       designation : 'Developer @ XYZ company',
       profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
     },
     {
-      name : 'vishnu',
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
+      title : 'Friends',
+      designation : 'Developer @ XYZ company',
+      profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+    },
+    {
+      name : 'Vishnu',
       title : 'Friends',
       designation : 'Developer @ XYZ company',
       profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"

@@ -7,23 +7,27 @@
   <div class="padding-container">
     <app-title customeClassName="font-16">Notification</app-title>
   </div>
-  <perfect-scrollbar class="scroll-container" fxFlex="auto" [config]="config" [scrollIndicators]="true">
-    <div fxLayout="column" class="notification-category-container scrollable-content" fxLayoutAlign="space-around">
-      <div class="category-head">
-        <app-title customeClassName="font-10 inactive pa">NEW</app-title>
-      </div>
-      <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin" *ngFor="let requests of friendRequestList">
+  <!-- <perfect-scrollbar class="scroll-container" fxFlex="auto" [config]="config" [scrollIndicators]="true"> -->
+  <div fxLayout="column" class="notification-category-container scrollable-content" fxLayoutAlign="space-around">
+    <div class="category-head">
+      <app-title customeClassName="font-10 inactive pa">NEW</app-title>
+    </div>
+    <div class="scrollbar" id="style-3">
+      <div class="force-overflow">
+        <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin"
+          *ngFor="let requests of friendRequestList">
           <app-notification-friend-request [userDetails]="requests"></app-notification-friend-request>
-          <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
+          <app-horizontal-separator customeClassName="notification"></app-horizontal-separator>
+        </div>
       </div>
-      <!-- <div class="category-head">
+    </div>
+    <!-- <div class="category-head">
           <app-title customeClassName="font-10 inactive pa">EARLIER</app-title>
         </div>
         <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin" *ngFor="let requests of friendRequestList">
             <app-notification-friend-request [userDetails]="requests"></app-notification-friend-request>
             <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
         </div> -->
-
-    </div>
-  </perfect-scrollbar>
+  </div>
+  <!-- </perfect-scrollbar> -->
 </div>
