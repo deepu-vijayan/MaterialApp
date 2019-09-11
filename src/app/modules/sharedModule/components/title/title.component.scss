@@ -39,6 +39,14 @@
   letter-spacing: 0.27px;
   color: #374c67;
 }
+.font-14-nobold{
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.27px;
+  color: #374c67;
+}
 .font-14-bold{
   font-size: 14px;
   font-weight: bold;
@@ -58,9 +66,26 @@
   color: #374c67;
   padding: 15px 0;
 }
+.font-16-nobold{
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.27px;
+  color: #374c67;
+  padding: 15px 0;
+}
 .font-18{
   font-size: 18px;
   font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #374c67;
+}
+.font-18-nobold{
+  font-size: 18px;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;

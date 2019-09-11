@@ -26,5 +26,9 @@ export class WebapiService {
     let url = this.getBaseUrl() + 'connectUser';
     return this.http.post(url,data)
    }
+    searchProfiles(){
+    let url = './assets/MockJSon/searchProfiles.json';
+    return this.http.get(url)
+   }
 
 }

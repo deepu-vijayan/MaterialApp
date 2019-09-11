@@ -11,41 +11,20 @@ jw-modal {
         right: 0;
         bottom: 0;
         left: 0;
+
         /* z-index must be higher than .jw-modal-background */
         z-index: 1000;
-
+        
         /* enables scrolling for tall modals */
         overflow: auto;
 
         .jw-modal-body {
-            position: absolute;
-            //padding: 20px;
+            padding: 20px;
             background: #fff;
-            right:13%;
-            width: 30%;
-            height: 60%;
-            box-shadow: 10px 10px 8px #888888;
 
             /* margin exposes part of the modal background */
             margin: 40px;
         }
-        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-            .jw-modal-body {
-              //padding: 20px;
-              right:0%;
-              top: 5%;
-              width: 50%;
-          }
-        }
-        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-            .jw-modal-body {
-              //padding: 20px;
-              right:-5%;
-              top: 7%;
-              width: 90%;
-          }
-        }
-
     }
 
     .jw-modal-background {
@@ -57,9 +36,9 @@ jw-modal {
         left: 0;
 
         /* semi-transparent black  */
-        //background-color: #000;
-        //opacity: 0.75;
-
+        background-color: #000;
+        opacity: 0.75;
+        
         /* z-index must be below .jw-modal and above everything else  */
         z-index: 900;
     }

@@ -40,6 +40,9 @@ import { VerticalSeparatorComponent } from './components/vertical-separator/vert
 
 import { RouterModule, Routes } from '@angular/router';
 import { NotificationFriendRequestComponent } from './components/notification-friend-request/notification-friend-request.component';
+import { ViewRatingComponent } from './components/view-rating/view-rating.component';
+import { ViewBarChartComponent } from './components/view-bar-chart/view-bar-chart.component';
+import { ViewPieChartComponent } from './components/view-pie-chart/view-pie-chart.component';
 const commonRoutes: Routes = [
 ];
 @NgModule({
@@ -66,7 +69,10 @@ const commonRoutes: Routes = [
     HeadingIconComponent,
     HorizontalSeparatorComponent,
     VerticalSeparatorComponent,
-    NotificationFriendRequestComponent
+    NotificationFriendRequestComponent,
+    ViewRatingComponent,
+    ViewBarChartComponent,
+    ViewPieChartComponent
   ],
   imports: [
     CommonModule,
@@ -99,7 +105,8 @@ const commonRoutes: Routes = [
     HeadingIconComponent,
     HorizontalSeparatorComponent,
     VerticalSeparatorComponent,
-    NotificationFriendRequestComponent
+    NotificationFriendRequestComponent,
+    ViewRatingComponent
   ],
   entryComponents: [DialogComponent],
   providers: [

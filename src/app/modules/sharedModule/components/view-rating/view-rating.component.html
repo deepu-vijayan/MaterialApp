@@ -1,0 +1,27 @@
+<div *ngIf="textRequired == 'true'">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <app-title customeClassName="font-22">{{rating}} Stars</app-title>
+    <app-title customeClassName="font-14 inactive"> /{{starCount}}</app-title>
+  </div>
+<button mat-icon-button [color]="color" class="icon-only" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" [matTooltip]="ratingId+1" matTooltipPosition="above">
+  <mat-icon>
+    {{showIcon(i)}}
+  </mat-icon>
+</button>
+<mat-error *ngIf="starCount == null || starCount == 0">
+  Star count is <strong>required</strong> and cannot be zero
+</mat-error>
+</div>
+<div *ngIf='textRequired == "false"'>
+    <div fxLayout="row" fxLayoutAlign="start">
+        <button mat-icon-button [color]="color" class="icon-only" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" [matTooltip]="ratingId+1" matTooltipPosition="above">
+            <mat-icon>
+              {{showIcon(i)}}
+            </mat-icon>
+          </button>
+          <mat-error *ngIf="starCount == null || starCount == 0">
+            Star count is <strong>required</strong> and cannot be zero
+          </mat-error>
+    </div>
+
+  </div>

@@ -25,9 +25,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 import { ModalModule } from 'src/app/_modal';
 import { ConnectedProfilesComponent } from './components/connected-profiles/connected-profiles.component';
 import { NotificationPopupComponent } from './components/notification-popup/notification-popup.component';
+import { RatingFactorsComponent } from './components/rating-factors/rating-factors.component';
+import { ChartsModule } from 'ng2-charts';
+import {ChartModule} from 'primeng/chart';
 @NgModule({
   declarations: [LayoutComponent, SidenavComponent, HeadernavComponent,
-    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent],
+    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent, RatingFactorsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -36,7 +39,9 @@ import { NotificationPopupComponent } from './components/notification-popup/noti
     FlexLayoutModule,
     PerfectScrollbarModule,
     PerfectScrollbarModule,
-    ModalModule
+    ModalModule,
+    ChartsModule,
+    ChartModule
   ],
   entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent],
   providers: [
