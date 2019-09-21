@@ -1,0 +1,26 @@
+<div class="container">
+  <div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
+    <div fxLayout="column" fxLayoutGap="20px">
+      <app-title customeClassName="font-16">Knowledge</app-title>
+      <div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <app-title customeClassName="font-22">6 Stars</app-title>
+          <app-title customeClassName="font-14 inactive"> /10</app-title>
+        </div>
+        <app-title customeClassName="font-14"> Based on 8,983 ratings</app-title>
+      </div>
+    </div>
+    <div fxFlex="70" fxLayout="column" fxLayoutGap="5px">
+      <div fxLayout="row" fxLayoutGap="20px" *ngFor="let number of [10,9,8,7,6,5,4,3,2,1]">
+        <div class="title">
+          <app-title customeClassName="font-16">{{number}} Stars</app-title>
+        </div>
+        
+          <mat-progress-bar mode="determinate" value="40" style="height: 10px;"></mat-progress-bar>
+        
+      </div>
+      
+    </div>
+  </div>
+
+</div>

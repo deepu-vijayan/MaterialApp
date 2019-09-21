@@ -1,0 +1,57 @@
+
+<div fxLayout="column" fxLayoutGap="30px">    
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px"
+    fxLayoutAlign="space-around none">
+
+    <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="30px">
+        <app-title customeClassName="font-16">Ratings recieved over time</app-title>
+        <mat-card>
+            <p-chart type="bar" [data]="dataBarChart" [options]="chartOptionsBar" width="300px" responsive="true"
+                height="300px"></p-chart>
+        </mat-card>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="30px">
+        <app-title customeClassName="font-16">Ratings recieved over time</app-title>
+        <mat-card>
+            <p-chart type="doughnut" [data]="dataDoughnut" width="300px" responsive="true" height="300px"
+                [options]="chartOptionsDoughnut"></p-chart>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px"
+    fxLayoutAlign="space-around none">
+
+    <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="30px">
+        <app-title customeClassName="font-16">Feedbacks recieved over time</app-title>
+        <mat-card>
+            <p-chart type="bar" [data]="dataBarChart" [options]="chartOptionsBar" width="300px" responsive="true"
+                height="300px"></p-chart>
+        </mat-card>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="30px">
+        <app-title customeClassName="font-16">Feedbacks by connection type</app-title>
+        <mat-card>
+            <p-chart type="doughnut" [data]="dataDoughnut" width="300px" responsive="true" height="300px"
+                [options]="chartOptionsDoughnut"></p-chart>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px"
+    fxLayoutAlign="space-around none">
+
+    <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="30px">
+        <app-title customeClassName="font-16">Feedbacks recieved over time</app-title>
+        <mat-card>
+            <p-chart type="bar" [data]="dataBarChart" [options]="chartOptionsBar" width="300px" responsive="true"
+                height="300px"></p-chart>
+        </mat-card>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="30px">
+        <app-title customeClassName="font-16">Feedbacks by connection type</app-title>
+        <mat-card>
+            <p-chart type="doughnut" [data]="dataDoughnut" width="300px" responsive="true" height="300px"
+                [options]="chartOptionsDoughnut"></p-chart>
+        </mat-card>
+    </div>
+</div>
+</div>

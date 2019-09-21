@@ -1,56 +1,47 @@
-<mat-card fxLayout="column" class="container" fxLayoutWrap>
-    <div fxLayout="row" fxFlex="5">
+<mat-card fxLayout="column" fxLayoutGap="30px">
+    <div>
         <app-title customeClassName="font-16">Your Average Rating</app-title>
     </div>
-    <div fxFlex="15" fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap
-        fxLayoutAlign.lt-md="center center">
-
-        <div fxLayout="column" fxFlex="30" fxLayoutAlign.lt-md="center center">
-            <div fxLayout="row">
-                <app-readonly-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor">
-                </app-readonly-star-rating>
-            </div>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px"
+        fxLayoutAlign="space-between none">
+        <div fxLayout="row">
+            <app-readonly-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor">
+            </app-readonly-star-rating>
         </div>
-        <div fxFlex="30" fxLayout="row">
-            <div fxFlex="30">
+        <div fxLayoutGap="30px" fxLayoutAlign="space-around none">
+            <div>
                 <app-heading-icon materialIcon="trending_up" className="circleAround"></app-heading-icon>
             </div>
-
-            <div class="row">
+            <div fxLayout="column">
                 <app-title customeClassName="font-13">3,593</app-title>
-            </div>
-            <div class="row">
                 <app-title customeClassName="font-13-noBold">&nbsp;&nbsp;Ratings Received</app-title>
             </div>
-
         </div>
-        <div fxFlex="30" fxLayout="row">
-            <div fxFlex="30">
+        <div fxLayoutGap="30px" fxLayoutAlign="space-around none">
+            <div>
                 <app-heading-icon materialIcon="message" className="circleAround"></app-heading-icon>
             </div>
-
-            <div class="row">
+            <div fxLayout="column">
                 <app-title customeClassName="font-13">4,893</app-title>
-            </div>
-            <div class="row">
                 <app-title customeClassName="font-13-noBold">&nbsp;&nbsp; Feedbacks Received</app-title>
             </div>
-
         </div>
     </div>
-    <div fxLayout="row" fxFlex="10">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px"
+        fxLayoutAlign="space-between none">
         <app-title customeClassName="font-18-nobold">Rating factors</app-title>
     </div>
-    <div fxLayout="row" fxFlex="3">
+
+    <div>
         <mat-divider [inset]="true"></mat-divider>
     </div>
-    <div fxLayout="row">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px"
+        fxLayoutAlign="space-between none">
         <app-rating-factors [ratingFactors]="ratingFactors"></app-rating-factors>
     </div>
-    <div fxLayOut="row">
-        <p-chart type="bar" [data]="dataBarChart" width="300px" responsive="true" height="300px"></p-chart>
-
-        <p-chart type="doughnut" [data]="dataDoughnut" width="300px" responsive="true" height="300px"
-            [options]="chartOptions"></p-chart>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30px"
+        fxLayoutAlign="space-around none">
     </div>
+<app-rating-charts ></app-rating-charts>
+
 </mat-card>

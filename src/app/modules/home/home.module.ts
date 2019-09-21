@@ -28,9 +28,11 @@ import { NotificationPopupComponent } from './components/notification-popup/noti
 import { RatingFactorsComponent } from './components/rating-factors/rating-factors.component';
 import { ChartsModule } from 'ng2-charts';
 import {ChartModule} from 'primeng/chart';
+import { RatingChartsComponent } from './components/rating-charts/rating-charts.component';
+import { KnowledgeStatusPopupComponent } from './components/knowledge-status-popup/knowledge-status-popup.component';
 @NgModule({
   declarations: [LayoutComponent, SidenavComponent, HeadernavComponent,
-    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent, RatingFactorsComponent],
+    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent, RatingFactorsComponent, RatingChartsComponent, KnowledgeStatusPopupComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

@@ -1,47 +1,33 @@
-<!-- <div class="container">
-  <div fxLayout="row" >
-      <div fxLayout="column" fxFlex="40">
-          <app-title customeClassName="font-16">{{factor.factorName}}</app-title>
-      </div>
-      <div fxLayout="column" fxFlex="50">
-        *************
-      </div>
-      <div fxLayout="column" fxFlex="10">
-        *************
-      </div>    
-      <div fxLayout="row" fxFlex="3">
-          <mat-divider [inset]="true"></mat-divider>
-      </div>
+<div fxLayout="column" *ngFor="let factor of ratingFactors" fxLayoutGap="30px">
+  <div>
   </div>
-</div>       -->
-<div  *ngFor="let factor of ratingFactors">
-    <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="30%" fxLayoutAlign="flex-start">
-  <div fxFlex="20%">
-    <div class="content">
-    <app-title customeClassName="font-14">{{factor.factorName}}</app-title>
-  </div>
-  </div>
-  <div fxFlex="40%">
-    <div  class="star-content"></div>
-      <app-readonly-star-rating [rating]="factor.starRating" [starCount]="starCount" [color]="starColor" textRequired="false">
-        </app-readonly-star-rating>
-  </div>
-  <div fxFlex="20%">
-      <div  class="content">
-    <app-title customeClassName="font-14-bold">{{factor.starRating}}Stars</app-title>
-    <app-title customeClassName="font-14-nobold">/10</app-title>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="50px" fxLayout.lt-md="column" fxLayout.xs="column">
+    <div class="title">
+      <app-title customeClassName="font-13">{{factor.factorName}}</app-title>
+    </div>
+    <div >
+      <app-readonly-star-rating [rating]="factor.starRating" [starCount]="starCount" [color]="starColor"
+        textRequired="false">
+      </app-readonly-star-rating>
+    </div>
+    <div>
+        <app-title customeClassName="font-14-bold">{{factor.starRating}}Stars</app-title>
+        <app-title customeClassName="font-14-nobold">/10</app-title>
+    </div>
+    <div>
+        <app-title customeClassName="font-14-nobold">({{factor.totalRatings}})</app-title>
+    </div>
+    <div fxHide.lt-md (click)="openPopOver($event,'knowledge-status-popup-status',false)">
+        <app-heading-icon materialIcon="equalizer"></app-heading-icon>
+    </div>
+    <div fxHide fxShow.lt-md (click)="openPopOver($event,'knowledge-status-popup-status',true)">
+        <app-heading-icon materialIcon="equalizer"></app-heading-icon>
     </div>
   </div>
-  <div fxFlex="20%" >
-    <div  class="content">
-    <app-title customeClassName="font-14-nobold">({{factor.totalRatings}})</app-title>
+  <div>
+    <mat-divider></mat-divider>
   </div>
-  </div>
-  <div fxFlex="20%" fxLayoutAlign="flex-end" >
-    <app-heading-icon materialIcon="equalizer"></app-heading-icon>
-  </div>
-</div>
-<div >
-    <mat-divider ></mat-divider>
-</div>
+  <jw-modal id="knowledge-status-popup-status" [XAxis]="left" [YAxis]="top">
+      <app-knowledge-status-popup></app-knowledge-status-popup>
+  </jw-modal>
 </div>
