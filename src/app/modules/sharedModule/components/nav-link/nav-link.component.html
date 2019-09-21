@@ -1,4 +1,4 @@
-<a mat-list-item  (click)="onClicked()"  ><mat-icon mat-list-icon>{{link.icon}}</mat-icon> <span fxHide="true" fxShow.gt-sm>{{link.title}}</span></a>
+<a mat-list-item  (click)="onClicked()"  [ngClass]="{'active': activeStatus}"><mat-icon mat-list-icon>{{link.icon}}</mat-icon> <span fxHide="true" fxShow.gt-sm>{{link.title}}</span></a>
 <!-- <a
            mat-list-item
            (click)="onClicked()"

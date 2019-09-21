@@ -7,18 +7,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { HomeModule } from './modules/home/home.module';
 
 import { CommonService } from './core/service/common.service';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './modules/sharedModule/shared.module';
+import { ProfileComponent } from './public/profile/profile.component';
+import { SidenavComponent } from './public/sidenav/sidenav.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { SharedModule } from './modules/sharedModule/shared.module';
     NgScrollbarModule,
     ScrollingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HomeModule
   ],
   providers: [
     CommonService,

@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" >
+  <div>
+    <mat-form-field>
+      <mat-select placeholder="Add To List" [(ngModel)]="selectedCategory" required>
+        <mat-option *ngFor="let category of connectionCategory" value="{{category.id}}">{{category.name}}</mat-option>
+        <!-- <mat-option value="1">Friend</mat-option>
+        <mat-option value="2">Family</mat-option> -->
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <div>
+        <app-icon-button matIconName="check" cssClass="primary-button" (onClick)="connectUser($event);" label="Connect" altText="Connect" ></app-icon-button>
+    </div>
+    <div class="padding-r-1">
+        <app-icon-button  cssClass="thirdary-button" (onClick)="cancelConnection($event);" label="Cancel" altText="Cancel" ></app-icon-button>
+    </div>
+
+  </div>
+</div>

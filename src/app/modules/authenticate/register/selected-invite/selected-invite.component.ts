@@ -15,9 +15,11 @@ export class SelectedInviteComponent implements OnInit {
   public connectionList: any[];
   public selectedContacts :any[]=[];
   SearchField:string ='';
+  public profileDetails;
 
 
   ngOnInit() {
+    this.profileDetails = this.commonService.getBasicProfileInfo();
     this.connectionList = this.commonService.getConnectionDetailList();
     if(this.connectionList == undefined){
         this.connectionList = [{

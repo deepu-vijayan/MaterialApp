@@ -9,7 +9,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Lato, Roboto, "Helvetica Neue", sans-serif;
 }
 
 .toolbar {
@@ -50,4 +50,11 @@ body {
 }
 .margin-top-left-3{
   margin: 3% 0% 0% 3%!important;
+}
+.right-border{
+  border-right: 1px solid #eaecf3;
+}
+mat-sidenav:focus {
+  outline: none;
+  border: 0;
 }

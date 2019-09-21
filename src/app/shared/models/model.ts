@@ -5,7 +5,7 @@ export class LoginModel {
     socialLoginUsed: number;
     profilePic: string;
     designation:string;
-    appUserId: any;
+    //appUserId: any;
     constructor(){
       this.email = '';
       this.name = '';
@@ -13,6 +13,21 @@ export class LoginModel {
       this.socialLoginUsed = 0;
       this.profilePic = '';
       this.designation = '';
-      this.appUserId = null;
+      //this.appUserId = null;
     }
+}
+export interface  SearchUserModel{
+  id:number;
+  name: string;
+  email: string;
+  dateOfBirth: string;
+  profilePic: string;
+  socialLoginUsed: number;
+  designation: string;
+  createdDate: string;
+  lastUpdatedDate: string;
+  appUserDetails: string;
+  fromAppUser: any[];
+  toAppUser: any[];
+
 }

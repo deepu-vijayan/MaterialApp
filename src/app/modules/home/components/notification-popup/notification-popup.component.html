@@ -8,26 +8,41 @@
     <app-title customeClassName="font-16">Notification</app-title>
   </div>
   <!-- <perfect-scrollbar class="scroll-container" fxFlex="auto" [config]="config" [scrollIndicators]="true"> -->
-  <div fxLayout="column" class="notification-category-container scrollable-content" fxLayoutAlign="space-around">
-    <div class="category-head">
-      <app-title customeClassName="font-10 inactive pa">NEW</app-title>
-    </div>
-    <div class="scrollbar" id="style-3">
-      <div class="force-overflow">
-        <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin"
-          *ngFor="let requests of friendRequestList">
-          <app-notification-friend-request [userDetails]="requests"></app-notification-friend-request>
-          <app-horizontal-separator customeClassName="notification"></app-horizontal-separator>
+    <div fxLayout="column" class="notification-category-container scrollable-content" fxLayoutAlign="space-around">
+      <div fxLayout="column" fxLayoutAlign="center center" *ngIf="notificationLoadingFlag">
+        <mat-progress-spinner
+          class="example-margin"
+          color="accent"
+          mode="indeterminate"
+          value="95">
+      </mat-progress-spinner>
+      </div>
+      <div class="scrollbar" id="style-3" *ngIf="! notificationLoadingFlag">
+          <div class="force-overflow">
+            <div class="category-head">
+              <app-title customeClassName="font-10 inactive pa">NEW</app-title>
+            </div>
+            <div  *ngIf="friendRequestList.length;then content else no_content"></div>
+            <ng-template #content >
+              <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin" *ngFor="let requests of friendRequestList">
+                <app-notification-friend-request [requestDetails]="requests"></app-notification-friend-request>
+                <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
+              </div>
+            </ng-template>
+            <ng-template #no_content>
+              <div class="notification-margin">No request found</div>
+            </ng-template>
+          <!-- <div class="category-head">
+              <app-title customeClassName="font-10 inactive pa">EARLIER</app-title>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin" *ngFor="let requests of friendRequestList">
+                <app-notification-friend-request [userDetails]="requests"></app-notification-friend-request>
+                <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
+            </div> -->
         </div>
       </div>
+
+
     </div>
-    <!-- <div class="category-head">
-          <app-title customeClassName="font-10 inactive pa">EARLIER</app-title>
-        </div>
-        <div fxLayout="column" fxLayoutAlign="space-around" class="notification-margin" *ngFor="let requests of friendRequestList">
-            <app-notification-friend-request [userDetails]="requests"></app-notification-friend-request>
-            <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
-        </div> -->
-  </div>
   <!-- </perfect-scrollbar> -->
 </div>

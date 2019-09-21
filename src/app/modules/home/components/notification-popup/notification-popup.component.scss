@@ -39,7 +39,7 @@
 {
   position: relative;
 	height: 350px;
-	background: #F5F5F5;
+	//background: #F5F5F5;
 	overflow-y: scroll;
 	margin-bottom: 25px;
 }
@@ -67,4 +67,8 @@
 #style-3::-webkit-scrollbar-thumb
 {
 	background-color: #00A6C4;
+}
+.mat-progress-spinner{
+  width: 30px;
+  height: 30px;
 }

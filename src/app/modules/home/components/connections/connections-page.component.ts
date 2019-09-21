@@ -10,40 +10,89 @@ export class ConnectionsPageComponent implements OnInit {
   constructor() { }
 
   index: number;
-  navLinksDesktop=[];
-  cardTitle = 'All'
+  connectionCategories=[];
+  selectedItem = {};
+  selectedIndex = 0;
+  connections = [];
   //navLinksDesktop: { title: string; comp  icon: string; }[];
   ngOnInit() {
-    this.navLinksDesktop = [
+    this.connectionCategories = [
       {
         title: 'All',
-        //component: ConnectedProfilesComponent,
-        count: '4,893'
+        count: '4,893',
+        connectionList: [
+          {
+            name : 'vishnu',
+            title : 'Friends',
+            designation : 'Developer @ XYZ company',
+            profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+          },
+          {
+            name : 'deepu',
+            title : 'Friends',
+            designation : 'Developer @ XYZ company',
+            profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+          },
+          {
+            name : 'jacob',
+            title : 'Friends',
+            designation : 'Developer @ XYZ company',
+            profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+          }
+        ]
       },
       {
         title: 'Friends',
         //component: ConnectedProfilesComponent,
-        count: '2,431'
+        count: '2,431',
+        connectionList: [
+          {
+            name : 'vishnu',
+            title : 'Friends',
+            designation : 'Developer @ XYZ company',
+            profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+          }
+        ]
       },
       {
         title: 'Family',
         //component: ConnectedProfilesComponent,
-        count: '831'
+        count: '831',
+        connectionList: [
+          {
+            name : 'deepu',
+            title : 'Friends',
+            designation : 'Developer @ XYZ company',
+            profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+          }
+        ]
       },
       {
         title: 'Seniors',
         //component: ConnectedProfilesComponent,
-        count: '1,501'
+        count: '1,501',
+        connectionList: [
+          {
+            name : 'jacob',
+            title : 'Seniors',
+            designation : 'Developer @ XYZ company',
+            profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg"
+          }
+        ]
       },
       {
         title: 'Juniors',
-        //component: ConnectedProfilesComponent,
-        count: '689'
-      }]
+        count: '689',
+        connectionList: []
+      }];
+      this.selectedItem = this.connectionCategories[0];
+      this.connections = this.connectionCategories[0].connectionList;
   }
 
-  navItemClicked(link) {
-    this.cardTitle = link.title;
+  navItemClicked(item) {
+    this.selectedItem = item;
+    this.connections = item.connectionList;
+    //this.selectedIndex = link.selectedIndex;
   }
 
 }

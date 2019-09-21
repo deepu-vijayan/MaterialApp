@@ -2,7 +2,7 @@
   <app-title class="item">
       Hi!
   </app-title>
-  <app-user-info class="item"></app-user-info>
+  <app-user-info [profileDetails]="profileDetails" class="item"></app-user-info>
   <app-sub-title subClass="no-margin">You have</app-sub-title>
   <h1 class="connectionCount">{{this.connectionList.length}}</h1>
   <app-sub-title subClass="dark-bold">connection from google</app-sub-title>

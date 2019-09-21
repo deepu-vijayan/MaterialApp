@@ -1,0 +1,14 @@
+<div fxLayout="column" fxLayoutAlign="space-around stretch" *ngFor="let attribute of attributeData">
+  <div class="attribute-block" fxLayout="column" >
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <app-title customeClassName="font-16 user-name">{{attribute.name}}</app-title>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center stretch">
+        <mat-star-rating rating="{{attribute.rating ? attribute.rating : 0}}"  [color]="starColor"
+        (ratingUpdated)="onRatingChanged($event, attribute)"  mode="add" class="width-100">
+      </mat-star-rating>
+    </div>
+  </div>
+
+</div>
+

@@ -7,10 +7,12 @@ import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 })
 export class NavLinkComponent implements OnInit {
   @Input()  link;
+  @Input() activeStatus;
   @Output() onNavigationClicked = new EventEmitter();
   constructor() { }
- 
+
   ngOnInit() {
+    console.log(this.activeStatus);
   }
   onClicked () {
     this.onNavigationClicked.emit(this.link);

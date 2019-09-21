@@ -40,6 +40,9 @@ import { VerticalSeparatorComponent } from './components/vertical-separator/vert
 
 import { RouterModule, Routes } from '@angular/router';
 import { NotificationFriendRequestComponent } from './components/notification-friend-request/notification-friend-request.component';
+import { RequestConnectionComponent } from './components/request-connection/request-connection.component';
+import { RatingAttributeComponent } from './components/rating-attribute/rating-attribute.component';
+
 import { ViewRatingComponent } from './components/view-rating/view-rating.component';
 import { ViewBarChartComponent } from './components/view-bar-chart/view-bar-chart.component';
 import { ViewPieChartComponent } from './components/view-pie-chart/view-pie-chart.component';
@@ -70,6 +73,8 @@ const commonRoutes: Routes = [
     HorizontalSeparatorComponent,
     VerticalSeparatorComponent,
     NotificationFriendRequestComponent,
+    RequestConnectionComponent,
+    RatingAttributeComponent,
     ViewRatingComponent,
     ViewBarChartComponent,
     ViewPieChartComponent
@@ -106,9 +111,11 @@ const commonRoutes: Routes = [
     HorizontalSeparatorComponent,
     VerticalSeparatorComponent,
     NotificationFriendRequestComponent,
+    RequestConnectionComponent,
+    RatingAttributeComponent,
     ViewRatingComponent
   ],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, RequestConnectionComponent],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

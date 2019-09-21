@@ -13,7 +13,7 @@
   <div color='primary' class = "tp-container" fxLayout="row">
     <mat-sidenav mode = "side" opened>
         <mat-nav-list>
-            <app-nav-link *ngFor="let link of navLinksDesktop"
+            <app-nav-link *ngFor="let link of (navLinksDesktop | menuFilter); let i= index" [activeStatus]="link == selectedItem"
             [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
           </app-nav-link>
        </mat-nav-list>

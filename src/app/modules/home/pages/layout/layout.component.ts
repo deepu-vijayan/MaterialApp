@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   constructor() { }
-
+  searchObj:any;
   ngOnInit() {
   }
-
+  searchUser(searchdetails){
+    this.searchObj = searchdetails;
+  }
 }

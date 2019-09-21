@@ -1,0 +1,26 @@
+<mat-card fxLayout="row">
+    <div fxLayout="column"  fxLayoutAlign="start start"  fxFlex="100">
+      <div class="pageTitle">
+          <app-title customeClassName="font-18">People</app-title>
+      </div>
+      <div fxLayoutAlign="start start" fxLayout="column"   class="width-100">
+          <div  class="width-100 padding-lr-5" fxLayout="column"   class="width-100">
+              <div *ngIf="!searchResults || searchResults.length === 0">
+                  <p>No Connections Found</p>
+              </div>
+              <div *ngIf="searchResults || searchResults.length > 0" fxLayout="column">
+                <div *ngFor="let profile of searchResults " fxLayout="column" fxlayoutalign="space-around center">
+                    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayout.lt-xs="column">
+                      <app-user-info class="item" [profileDetails]="profile"></app-user-info>
+                      <div>
+                          <app-icon-button cssClass="thirdary-button" label="View Profile" (onClick)="viewProfile(profile);" altText="View Profile" ></app-icon-button>
+                        </div>
+                    </div>
+                    <app-horizontal-separator  customeClassName="notification"></app-horizontal-separator>
+                </div>
+              </div>
+            <mat-paginator *ngIf="searchResults || searchResults.length > 0" [length]="100" [pageSize]="10"></mat-paginator>
+          </div>
+       </div>
+  </div>
+</mat-card>

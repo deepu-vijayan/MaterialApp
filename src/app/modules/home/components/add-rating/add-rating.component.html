@@ -1,0 +1,30 @@
+<div fxLayout="column" class="popup-container">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+      <app-title customeClassName="font-20 user-name">Give your Rating </app-title>
+      <div class="close-popup" (click)="closePopup()"><i class="material-icons">
+          close
+          </i></div>
+  </div>
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between center" class="padding-tb-1">
+    <div>
+        <app-user-info [profileDetails]="visitorProfileDetails" class="item"></app-user-info>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <app-title customeClassName="font-16 user-name">{{visitorProfileDetails.appUserDetails.averageRating}} Stars</app-title>
+        <app-title customeClassName="font-12 inactive">(Average)</app-title>
+    </div>
+  </div>
+  <app-rating-attribute [attributeData]="attributeData" (onSaveAttributeRating)="getAttributeRating($event)">
+
+  </app-rating-attribute>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="column">
+        <app-title customeClassName="font-14 inactive">Total Average Score </app-title>
+        <app-title customeClassName="font-16 red-font">{{averageRating | number}} Stars</app-title>
+    </div>
+    <div>
+        <app-icon-button cssClass="primary-button" label="Submit"
+        altText="Submit" (onClick)="saveRating();"></app-icon-button>
+    </div>
+  </div>
+</div>

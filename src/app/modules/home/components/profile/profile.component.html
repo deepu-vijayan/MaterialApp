@@ -9,11 +9,16 @@
       </div>
       <div fxFlex="75" fxLayout="column">
         <div fxLayout="row wrap" fxLayout.lt-sm="column">
-          <div fxFlex="55" fxLayout="column" fxLayoutAlign="start starts" fxLayoutAlign.lt-md="start center">
-              <app-title customeClassName="font-16 user-name">{{userName}}</app-title>
+          <div fxFlex="55" fxLayout="column" fxLayoutAlign="start starts" fxLayoutAlign.lt-md="center center">
+              <app-title customeClassName="font-16 user-name">{{userName}} </app-title>
               <mat-card-subtitle>{{designation}}</mat-card-subtitle>
           </div>
-          <div fxFlex="45" fxLayout="column" fxLayoutAlign.lt-md="start center">
+          <div fxFlex="45" fxLayout="column" fxLayoutAlign="center end" fxLayoutAlign.lt-md="center center"  *ngIf="connectionStatus == 'not_connected'">
+            <div fxLayout="row">
+                <app-icon-button matIconName="add" cssClass="primary-button" (onClick)="addConnection($event);" label="Add Friend" altText="Add Friend" ></app-icon-button>
+            </div>
+          </div>
+          <div fxFlex="45" fxLayout="column" fxLayoutAlign.lt-md="start center" *ngIf="connectionStatus == null">
             <div fxLayout="row">
                 <button mat-stroked-button class="icon-only">
                     <mat-icon>share</mat-icon>
@@ -22,15 +27,15 @@
             </div>
           </div>
         </div>
-        <div fxLayout="row" fxLayout.lt-md="column">
+        <div fxLayout="row" fxLayout.lt-md="column" >
             <div fxFlex="55" fxLayout="column" fxLayoutAlign.lt-md="start center">
               <div fxLayout="row" >
-                    <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
+                    <mat-star-rating [rating]="rating"  [color]="starColor"
                     (ratingUpdated)="onRatingChanged($event)">
                   </mat-star-rating>
               </div>
             </div>
-            <div fxFlex="45" fxLayout="column" fxLayoutAlign.lt-md="start center">
+            <div fxFlex="45" fxLayout="column" fxLayoutAlign.lt-md="start center" *ngIf="connectionStatus == null">
               <div fxLayout="row wrap" fxLayoutAlign="start  space-around">
                   <button mat-stroked-button class="icon-only-social">
                       <img src="../../../../../assets/icons/sm/facebook-icon.png">
@@ -49,11 +54,15 @@
                   </button>
               </div>
             </div>
+            <div fxFlex="45" fxLayout="row" fxLayoutAlign="space-between center" *ngIf="connectionStatus == 'connected'">
+                <div><app-icon-button matIconName="star_half" cssClass="secondary-button" label="Give Rating" (onClick)="giveRating($event);" altText="Give Rating" ></app-icon-button></div>
+                <div><app-icon-button matIconName="chat" cssClass="secondary-button" label="Give Feedback" altText="Give Feedback" (onClick)="giveFeedback($event);"  ></app-icon-button></div>
+            </div>
           </div>
           <div fxLayout="row wrap"  class="padding-top" fxLayoutAlign="space-around center"  fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="start start" [ngStyle.lt-sm]="{'padding-left': '30%'}" >
-              <app-profile-statistics value="333" materialIcon="supervisor_account" label="Connections" ></app-profile-statistics>
-              <app-profile-statistics value="3,545" materialIcon="trending_up" label="Rating Received" ></app-profile-statistics>
-              <app-profile-statistics value="353" materialIcon="remove_red_eye" label="Views" ></app-profile-statistics>
+              <app-profile-statistics value="{{totalConnections}}" materialIcon="supervisor_account" label="Connections" ></app-profile-statistics>
+              <app-profile-statistics value="{{totalRatingReceived}}" materialIcon="trending_up" label="Rating Received" ></app-profile-statistics>
+              <app-profile-statistics value="{{totalProfileViews}}" materialIcon="remove_red_eye" label="Views" ></app-profile-statistics>
           </div>
       </div>
     </div>

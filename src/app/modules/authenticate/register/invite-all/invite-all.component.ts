@@ -9,10 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class InviteAllComponent implements OnInit {
   public connectionList : any;
-
+  public profileDetails;
   constructor(private commonService: CommonService, private router: Router, private webapiService: WebapiService) { }
 
   ngOnInit() {
+    this.profileDetails = this.commonService.getBasicProfileInfo();
     this.connectionList = this.commonService.getConnectionList();
   }
 

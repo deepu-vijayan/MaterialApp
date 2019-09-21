@@ -9,7 +9,7 @@
     "enableTwitter": true
   },
   "faceBookCredentials": {
-    "appId": "2407020216222254",
+    "appId": "1292363224251429",
     "version": "v3.3"
   },
   "faceBookCredentialsD": {
@@ -23,5 +23,6 @@
   "googleCredentialsP":{
     "clientId": "467264229972-78bf7fj2ra0bd3ds8bjbfeig5e48c3ag.apps.googleusercontent.com",
     "apiKey": "AIzaSyDE0gHL41AfffMN9iR6SEehEgRHdcCtT1I"
-  }
+  },
+  "maxRating": 10
 }

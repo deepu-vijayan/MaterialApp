@@ -2,24 +2,28 @@
   <div class="container" fxLayout="row" fxLayout.lt-md="column">
 
     <div class="logo" fxFlex="20" fxLayoutAlign="start center" >
-        <div> <button mat-icon-button > <!-- (click)="toggleSidenav.emit()"-->
+        <!-- <div> <button mat-icon-button >
             <mat-icon>menu</mat-icon>
           </button>
-        </div>
+        </div> --><!-- (click)="toggleSidenav.emit()"-->
       <img src="../../../../../assets/img/logo_inner.png" alt="logo" />
     </div>
     <div fxFlex="80" >
       <div class="search-panel"  fxFlex="80" fxFlex.lt-md="60" fxLayoutAlign="start center">
+        <form (ngSubmit)="onSearchSubmit()" #form="ngForm" fxFlex="100">
           <mat-form-field appearance="outline">
               <mat-label>Search all friends</mat-label>
-              <input matInput placeholder="Search all friends"  [(ngModel)]="SearchField" (keydown)="onSearchFilterChange($event)" [matAutocomplete]="auto">
-              <mat-icon matPrefix>search</mat-icon>
+              <input name="name" matInput placeholder="Search all friends" autocomplete="off" [(ngModel)]="SearchField"   [matAutocomplete]="auto"><!-- (keyup)="onSearchFilterChange($event)" -->
+              <mat-icon matPrefix (click)="onSearchSubmit()">search</mat-icon>
             </mat-form-field>
-            <mat-autocomplete #auto="matAutocomplete">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onUserSelect($event.option.value)'>
+              <ng-container *ngIf="filteredProfiles.length">
                 <mat-option *ngFor="let profile of filteredProfiles" [value]="profile.name">
                   {{profile.name}}
                 </mat-option>
-              </mat-autocomplete>
+              </ng-container>
+            </mat-autocomplete>
+          </form>
       </div>
       <div class="tools" fxFlex="20" fxFlex.lt-md="40" fxLayout="row" fxLayoutAlign="space-evenly center">
         <div class="notify"><mat-icon matBadge="15" (click)="openModal('custom-modal-1')">notifications</mat-icon>

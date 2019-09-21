@@ -25,6 +25,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 import { ModalModule } from 'src/app/_modal';
 import { ConnectedProfilesComponent } from './components/connected-profiles/connected-profiles.component';
 import { NotificationPopupComponent } from './components/notification-popup/notification-popup.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
+import { CustomerMenuFilter } from '../sharedModule/pipes/menuFilter.pipe';
+import { AddRatingComponent } from './components/add-rating/add-rating.component';
+import { AddFeedbackComponent } from './components/add-feedback/add-feedback.component';
+
 import { RatingFactorsComponent } from './components/rating-factors/rating-factors.component';
 import { ChartsModule } from 'ng2-charts';
 import {ChartModule} from 'primeng/chart';
@@ -32,7 +37,10 @@ import { RatingChartsComponent } from './components/rating-charts/rating-charts.
 import { KnowledgeStatusPopupComponent } from './components/knowledge-status-popup/knowledge-status-popup.component';
 @NgModule({
   declarations: [LayoutComponent, SidenavComponent, HeadernavComponent,
-    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent, RatingFactorsComponent, RatingChartsComponent, KnowledgeStatusPopupComponent],
+    ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent,
+    PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent,
+    SearchResultComponent, CustomerMenuFilter, AddRatingComponent, AddFeedbackComponent, RatingFactorsComponent, RatingChartsComponent, KnowledgeStatusPopupComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -45,7 +53,10 @@ import { KnowledgeStatusPopupComponent } from './components/knowledge-status-pop
     ChartsModule,
     ChartModule
   ],
-  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent],
+  exports: [
+    SidenavComponent, HeadernavComponent, ProfileComponent
+  ],
+  entryComponents:[ProfileComponent, RatingComponent, ConnectionsPageComponent, PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, SearchResultComponent, AddRatingComponent, AddFeedbackComponent],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

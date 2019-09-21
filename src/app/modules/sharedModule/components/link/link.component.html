@@ -1,8 +1,8 @@
-<mat-card (click)="onClicked()">
-   <mat-card-title>
-  <a routerLink="/dashboard" fxHide="true" fxShow.gt-sm>{{link.title}}</a>
-  </mat-card-title>
-  <mat-card-subtitle>
-  <div class="mat-count">{{link.count}}</div>
-</mat-card-subtitle>
-</mat-card>
+<div class="link-connection" [ngClass]="{'active': selectedItem}" (click)="onClicked()">
+    <div>
+      <app-title customeClassName="font-14 inactive item-bold">{{link.title}}</app-title>
+    <div>
+    <div>
+        <app-title customeClassName="font-14 inactive">{{link.count}}</app-title>
+    </div>
+</div>

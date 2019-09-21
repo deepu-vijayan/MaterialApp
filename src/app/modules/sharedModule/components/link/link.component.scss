@@ -1,11 +1,13 @@
 .link-connection{
-  width: 20%;
+  padding: 5%;
+  cursor: pointer;
 }
-.mat-count{
-    font-size: 10px;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.43;
-    letter-spacing: 0.2px;
-    color: #374c67;
+.active{
+  border-left: 2px solid #e33866;
+  border-top: 1px solid #eaecf3;
+  border-bottom: 1px solid #eaecf3;
+  border-right: 0px !important;
+}
+.link-connection{
+  border-right: 1px solid #eaecf3;
 }

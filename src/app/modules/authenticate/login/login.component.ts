@@ -43,13 +43,23 @@ export class LoginComponent implements OnInit, OnDestroy,AfterViewInit {
     switch(type){
       case "facebook":{
         this.socialApiService.signInWithFaceBook();
+        this.socialApiService.SIGNUP_API.subscribe(data =>{
+          if (data !== '') {
+            if(data['alreadyRegistered'] !=undefined && data['alreadyRegistered'] == true){
+              this.zone.run(() =>this.router.navigate(['home']));
+            } else {
+              this.zone.run(() =>this.router.navigate(['../authenticate/invite/all']));
+            }
+          }
+          this.commonService.hideLoading();
+        })
         break;
       }
       case "google":{
         this.socialApiService.SIGNUP_API.subscribe(data =>{
           if (data !== '') {
             if(data['alreadyRegistered'] !=undefined && data['alreadyRegistered'] == true){
-              this.router.navigate(['home']);
+              this.zone.run(() =>this.router.navigate(['home']));
             } else {
               this.zone.run(() =>this.router.navigate(['../authenticate/invite/all']));
             }

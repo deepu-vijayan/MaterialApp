@@ -11,6 +11,7 @@ export class IconButtonComponent implements OnInit {
   @Input() iconSrc:String;
   @Input() label:String;
   @Input() id:String;
+  @Input() matIconName:string;
   @Output() onClick = new EventEmitter();
   constructor() { }
 

@@ -4,11 +4,11 @@
       <div fxLayout="column">
         <div fxLayout="row"  fxLayoutAlign="space-between center" fxLayout.lt-md="column">
             <div>
-              <app-user-info class="item"></app-user-info>
+              <app-user-info [profileDetails]="profileDetails" class="item"></app-user-info>
             </div>
             <div fxLayout="row" fxLayoutAlign="center center" >
               <div>
-                <app-icon-button cssClass="thirdary-button" label="View Profile" altText="View Profile" ></app-icon-button>
+                <app-icon-button (onClick)="redirect($event, 'profile');" cssClass="thirdary-button" label="View Profile" altText="View Profile" ></app-icon-button>
               </div>
               <div>
                 <app-icon-button cssClass="secondary-button" label="Edit Profile" altText="Edit Profile" ></app-icon-button>
@@ -23,7 +23,7 @@
             </div>
             <div fxLayout="column" fxFlex="70" fxLayoutAlign.lt-md="center center">
                 <app-title customeClassName="font-13">Your Connections</app-title>
-                <app-title customeClassName="font-22">1320</app-title>
+                <app-title customeClassName="font-22">{{totalConnections}}</app-title>
                 <app-title customeClassName="font-14"><a class="hyperLink">3 New Requests</a> pending</app-title>
                 <div fxLayout="row" fxLayoutAlign="start center" >
                   <div>
@@ -45,10 +45,10 @@
                 <div fxLayout="column" fxFlex="70" fxLayoutAlign.lt-md="center center">
                     <div>
                       <app-title customeClassName="font-13">Your Rating</app-title>
-                      <app-title customeClassName="font-14">(1,12,111 rating)</app-title>
+                      <app-title customeClassName="font-14">({{totalRatingReceived}} rating)</app-title>
                     </div>
                     <div fxLayout="row" >
-                        <mat-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor"
+                        <mat-star-rating [rating]="rating"  [color]="starColor"
                           (ratingUpdated)="onRatingChanged($event)">
                         </mat-star-rating>
                     </div>

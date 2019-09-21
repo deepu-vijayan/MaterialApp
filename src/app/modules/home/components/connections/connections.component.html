@@ -1,18 +1,40 @@
-<mat-card  fxLayout="column" class="container">
-    <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="10px" fxLayoutGap.xs="0">
-        <div class="item item-1" fxFlex="15%">
-            <app-title customeClassName="font-16">My Connections</app-title>
-            <div class="invite-button">
-                <app-icon-button cssClass="secondary-button" label="Invite More People" altText="Invite More people">
-                </app-icon-button>
-            </div>
-            <app-link *ngFor="let link of navLinksDesktop" [link]="link" (onNavigationClicked)='navItemClicked($event)'>
-            </app-link>
+<!-- <mat-card  fxLayout="column">
+    <div class="connection-sidebar">
+       <div>My Connections</div>
+         <div class="invite-button">
+             <app-icon-button cssClass="secondary-button" label="Invite More People" altText="Invite More people" ></app-icon-button>
+           </div>
+       <app-link *ngFor="let link of navLinksDesktop"
+       [link] = "link" (onNavigationClicked)='navItemClicked($event)'>
+     </app-link>
+   </div>
+     <mat-card-content class = "tp-content">
+       <app-connected-profiles [title]="cardTitle"></app-connected-profiles>
+     </mat-card-content>
+   </mat-card> -->
+
+
+   <mat-card fxLayout="row">
+    <div fxLayout="column"  fxLayoutAlign="start start" fxFlex="30">
+      <div class="pageTitle">
+          <app-title customeClassName="font-18">My Connections</app-title>
+      </div>
+      <div  class="width-100">
+        <div fxLayout="column"  fxLayoutAlign="start start" class="invite-button-container right-border">
+            <app-icon-button cssClass="secondary-button no-morgin-left" label="Invite More People" altText="Invite More People" ></app-icon-button>
         </div>
-        <div class="item item-3" fxFlex = "30%">
-            <mat-card-content class = "tp-content">
-            <app-connected-profiles [title]="cardTitle"></app-connected-profiles>
-            </mat-card-content>
+        <div >
+            <app-link *ngFor="let item of connectionCategories; let i = index"
+            [link] = "item" [arrayIndex]="i" [selectedItem]="item == selectedItem" (onNavigationClicked)='navItemClicked($event)'>
+          </app-link>
         </div>
+      </div>
     </div>
+
+    <div fxLayoutAlign="start start" fxFlex="70">
+        <div  class="width-100 padding-lr-5">
+          <app-connected-profiles [connections]="connections"></app-connected-profiles>
+          <mat-paginator [length]="100" [pageSize]="10"></mat-paginator>
+        </div>
+     </div>
    </mat-card>

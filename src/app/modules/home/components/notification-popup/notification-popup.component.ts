@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PerfectScrollbarConfigInterface,
   PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
+  import { WebapiService } from '../../../../core/http/webapi.service';
+  import { CommonService } from '../../../../core/service/common.service'
 @Component({
   selector: 'app-notification-popup',
   templateUrl: './notification-popup.component.html',
@@ -8,61 +10,32 @@ import { PerfectScrollbarConfigInterface,
 })
 export class NotificationPopupComponent implements OnInit {
 
-  constructor() { }
-  private friendRequestList;
+  constructor(private webapiService:WebapiService, private commonService: CommonService) { }
+  public friendRequestList;
   public config: PerfectScrollbarConfigInterface = {};
   @ViewChild(PerfectScrollbarComponent, {}) componentRef?: PerfectScrollbarComponent;
+  public notificationLoadingFlag:boolean = true;
   ngOnInit() {
-    this.friendRequestList = [
-      {
-        email: "deepu.vijayan2007@gmail.com",
-        name: "deepu vijayan",
-        dateOfBirth: null,
-        socialLoginUsed: 4,
-        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
-        mutualFriends: 3
-      },
-      {
-        email: "deepu.vijayan2007@gmail.com",
-        name: "deepu vijayan",
-        dateOfBirth: null,
-        socialLoginUsed: 4,
-        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
-        mutualFriends: 2
-      },
-      {
-        email: "deepu.vijayan2007@gmail.com",
-        name: "deepu vijayan",
-        dateOfBirth: null,
-        socialLoginUsed: 4,
-        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
-        mutualFriends: 8
-      },
-      {
-        email: "deepu.vijayan2007@gmail.com",
-        name: "deepu vijayan",
-        dateOfBirth: null,
-        socialLoginUsed: 4,
-        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
-        mutualFriends: 6
-      },
-      {
-        email: "deepu.vijayan2007@gmail.com",
-        name: "deepu vijayan",
-        dateOfBirth: null,
-        socialLoginUsed: 4,
-        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
-        mutualFriends: 5
-      },
-      {
-        email: "deepu.vijayan2007@gmail.com",
-        name: "deepu vijayan",
-        dateOfBirth: null,
-        socialLoginUsed: 4,
-        profilePic: "https://lh4.googleusercontent.com/-YKMeaES2Wpw/AAAAAAAAAAI/AAAAAAAAB9o/P897Yl5w7Zg/s96-c/photo.jpg",
-        mutualFriends: 1
-      }
-    ]
+
+    this.commonService.PULL_NOTIFICATION.subscribe(status =>{
+      this.notificationLoadingFlag = true;
+      this.getNotifications();
+    })
+  }
+
+  getNotifications(){
+    let basicProfileInfo = this.commonService.getItem('userInfo');
+    let data = { appUserId : basicProfileInfo.appUserId}
+    this.webapiService.getAllConnectionRequests(data).subscribe(resp =>{
+      this.notificationLoadingFlag = false;
+      this.friendRequestList = resp;
+      console.log(resp);
+    },
+    error=>{
+      this.notificationLoadingFlag = false;
+      this.commonService.handleError(error);
+      console.log(error);
+    })
   }
 
 }

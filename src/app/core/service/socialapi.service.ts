@@ -57,18 +57,34 @@ export class SocialApiService {
   }
   signInWithFaceBook(){
     let socialApi = this;
+    let webServiceApi = this.webapiService;
+    let commonService = this.commonService;
     FB.login((response) => {
-      console.log('submitLogin', response);
       if (response.authResponse) {
-        console.log('logged in');
         let userId = response.authResponse.userID;
-        FB.api("/" + response.authResponse.userID + "/?fields=gender,email,name,id,picture,birthday", function (response) {
-          console.log('api in');
-          console.log(response);
+        FB.api("/" + response.authResponse.userID + "/?fields=gender,email,name,id,picture.width(250).height(350),birthday&height=350&width=250", function (response) {
           if (response && !response.error) {
             /* handle the result */
             let formatedInput = socialApi.formatLoginData('fb', response);
-            console.log(formatedInput);
+            webServiceApi.registerApi(formatedInput).subscribe(
+              data  => {
+
+                console.log("POST Request is successful ", data);
+                if(data['appUserId'] != null && data['appUserId'] != undefined){
+                  formatedInput['appUserId'] = data['appUserId'];
+                  socialApi.commonService.setBasicProfileInfo(formatedInput);
+                  if(data['alreadyRegistered'] == true){
+                    socialApi.SIGNUP_API.next({"alreadyRegistered": data['alreadyRegistered']});
+                  } else{
+                    socialApi.getConnectionsFromFaceBook(response.userId);
+                  }
+                }
+              },
+              error  => {
+                let errorMessage = 'Please try again'
+                commonService.HAS_ERR_MSG.next(errorMessage);
+                commonService.hideLoading();
+              })
           }
           //socialApi.getConnectionsFromFaceBook(userId);
         }
@@ -76,19 +92,24 @@ export class SocialApiService {
       }
       else {
         //console.log('User login failed');
-        this.commonService.HAS_ERR_MSG.next('User login failed');
-        this.commonService.hideLoading();
+        commonService.HAS_ERR_MSG.next('User login failed');
+        commonService.hideLoading();
       }
     }, { scope: 'public_profile,email,user_gender,user_birthday' })
   }
   getConnectionsFromFaceBook(id){
+    let socialApi = this;
     FB.api(
       "/" + id + "/friends",
       'GET',
       {},
       function(response) {
         console.log('friends in');
-        console.log(response);this.commonService.hideLoading();
+        console.log(response);
+        socialApi.commonService.hideLoading();
+        if(! socialApi.commonService.isEmpty(response.error)){
+          socialApi.commonService.HAS_ERR_MSG.next("Unexpected error in fetching friends list from facebook")
+        }
       }
     );
   }
@@ -134,7 +155,8 @@ export class SocialApiService {
         },
         error  => {
           let errorMessage = 'Please try again'
-          this.commonService.HAS_ERR_MSG.next(errorMessage);
+          socialApi.commonService.HAS_ERR_MSG.next(errorMessage);
+          socialApi.commonService.hideLoading();
         })
     }, (errors) => {
       let errMessage = '';
@@ -192,8 +214,12 @@ export class SocialApiService {
         emailListWithImage.push({
           fromAppuserId: profileInfo.appUserId,
           toEmail: contact.emailAddresses[0]['value'],
-          profilePic: contact.photos[0]['url'],
-          name: contact.names[0]['displayName']
+          //profilePic: contact.photos[0]['url'],
+          //name: contact.names[0]['displayName']
+          status:1,
+          notifyType:1,
+          createdDate : this.commonService.getCurrentDate(),
+          lastUpdatedDate: this.commonService.getCurrentDate()
         });
         return contact;
       }
@@ -212,10 +238,12 @@ export class SocialApiService {
   }
   formatFbData(data){
     let formatedDetails = new LoginModel();
-    formatedDetails.email = data.email;
-    formatedDetails.name = data.name;
-    formatedDetails.socialLoginUsed = 1;
-    formatedDetails.dateOfBirth = data.birthday;
+    formatedDetails['email'] = data.email;
+    formatedDetails['name'] = data.name;
+    formatedDetails['socialLoginUsed'] = 1;
+    formatedDetails['dateOfBirth'] = null;//data.birthday;
+    formatedDetails['profilePic'] = data.picture.data.url;
+    formatedDetails['designation'] = null;
     return formatedDetails;
   }
   formatGoogleData(data){

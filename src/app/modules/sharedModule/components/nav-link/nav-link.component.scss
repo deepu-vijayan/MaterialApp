@@ -7,9 +7,10 @@
   letter-spacing: 0.2px;
   color: #7b91af;
 }
-.list-item-active {
+.active {
   font-weight: bold;
-  background-color: ghostwhite;
+  background-color: #ffffff;
+  border-left: 2px solid #e33866;
 }
 // .active {
 //   background: blue;

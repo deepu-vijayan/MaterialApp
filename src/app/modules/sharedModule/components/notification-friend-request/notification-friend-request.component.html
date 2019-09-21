@@ -2,12 +2,12 @@
   <app-title customeClassName="font-14">Friend request from</app-title>
   <div fxLayout="row" fxLayoutAlign="space-around center" >
     <div fxLayout="row"  fxLayout.lt-sm="column" fxLayoutAlign="space-around center" fxLayoutAlign.lt-sm="start start" fxFlex="60" fxFlex.lt-sm="50">
-      <app-avatar imgSize="30" imgSrc="{{userDetails.profilePic}}" imgName="{{userDetails.name}}"></app-avatar>
-      <app-title customeClassName="font-13">{{userDetails.name}}</app-title>
-      <app-title customeClassName="font-13 inactive" *ngIf="userDetails.mutualFriends > 0"> ({{userDetails.mutualFriends}} mutual friends)</app-title>
+      <app-avatar imgSize="30" imgSrc="{{requestDetails.fromAppUserId.profilePic}}" imgName="{{requestDetails.fromAppUserId.name}}"></app-avatar>
+      <app-title customeClassName="font-13">{{requestDetails.fromAppUserId.name}}</app-title>
+      <app-title customeClassName="font-13 inactive" *ngIf="requestDetails.mutualFriends > 0"> ({{requestDetails.mutualFriends}} mutual friends)</app-title>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex="40" fxFlex.lt-sm="50">
-        <app-icon-button cssClass="secondary-button" label="Accept" altText="Accept" ></app-icon-button>
+        <app-icon-button cssClass="secondary-button" (onClick)="acceptRequest($event, requestDetails);" label="Accept" altText="Accept" ></app-icon-button>
         <button mat-stroked-button class="icon-only">
             <mat-icon>delete</mat-icon>
         </button>

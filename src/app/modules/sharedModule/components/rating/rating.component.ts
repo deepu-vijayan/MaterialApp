@@ -1,6 +1,7 @@
 
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { CommonService } from '../../../../core/service/common.service'
 
 @Component({
   selector: 'mat-star-rating',
@@ -11,25 +12,25 @@ import { MatSnackBar } from '@angular/material';
 export class RatingComponent implements OnInit {
 
   @Input('rating') public rating: number = 3;
-  @Input('starCount') public starCount: number = 5;
+  public starCount: number = 5;
   @Input('color') public color: string = 'accent';
+  @Input() mode:string = 'view';
   @Output() public ratingUpdated = new EventEmitter();
 
   public snackBarDuration: number = 2000;
   public ratingArr = [];
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor(private snackBar: MatSnackBar, private commonService: CommonService) {
   }
 
 
   ngOnInit() {
-    console.log("a "+this.starCount)
+    this.starCount = this.commonService.getMaxRating();
     for (let index = 0; index < this.starCount; index++) {
       this.ratingArr.push(index);
     }
   }
   onClick(rating:number) {
-    console.log(rating)
     this.snackBar.open('You rated ' + rating + ' / ' + this.starCount, '', {
       duration: this.snackBarDuration
     });

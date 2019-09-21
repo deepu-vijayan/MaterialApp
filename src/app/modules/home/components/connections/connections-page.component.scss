@@ -1,13 +1,10 @@
-.mat-sidenav{
-  width: 20%;
-  border: 0px;
+
+.connection-sidebar{
+  //width: 30%;
 }
-
-.invite-button{
-    width: 20%;
+connections-card-content{
+  width: 30%;
 }
-
-
 .tp-content {
   background-color: rgb(255, 255, 255);
   width: 70%;
@@ -15,6 +12,12 @@
   position: absolute;
   left: 200px;
 }
-.container{
-  height: 750px;
+.width-100{
+  width: 100%;
+}
+.padding-lr-5{
+  padding: 0 5%;
+}
+.invite-button-container{
+  padding: 3% 0%;
 }

@@ -23,23 +23,7 @@
   letter-spacing: 0.19px;
   color: #374c67;
 }
-.font-13-noBold{
-  font-size: 13px;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.54;
-  letter-spacing: 0.19px;
-  color: #374c67;
-}
 .font-14{
-  font-size: 14px;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.27px;
-  color: #374c67;
-}
-.font-14-nobold{
   font-size: 14px;
   font-style: normal;
   font-stretch: normal;
@@ -66,15 +50,6 @@
   color: #374c67;
   padding: 15px 0;
 }
-.font-16-nobold{
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.27px;
-  color: #374c67;
-  padding: 15px 0;
-}
 .font-18{
   font-size: 18px;
   font-weight: bold;
@@ -84,12 +59,13 @@
   letter-spacing: 0.3px;
   color: #374c67;
 }
-.font-18-nobold{
-  font-size: 18px;
+.font-20{
+  font-size: 20px;
+  font-weight: 900;
   font-style: normal;
   font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.3px;
+  line-height: 1.5;
+  letter-spacing: 0.33px;
   color: #374c67;
 }
 .font-22{
@@ -134,4 +110,35 @@
 }
 .main-head-container{
   padding: 3%!important;
+}
+.item-bold{
+  font-weight: bold;
+}
+.red-font{
+  color: #e33866;
+}
+.font-14-nobold{
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.27px;
+  color: #374c67;
+}
+.font-16-nobold{
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.27px;
+  color: #374c67;
+  padding: 15px 0;
+}
+.font-18-nobold{
+  font-size: 18px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #374c67;
 }

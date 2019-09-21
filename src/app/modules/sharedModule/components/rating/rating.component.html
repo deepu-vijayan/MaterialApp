@@ -1,12 +1,31 @@
-<div fxLayout="row" fxLayoutAlign="start center">
-    <app-title customeClassName="font-22">{{rating}} Stars</app-title>
-    <app-title customeClassName="font-14 inactive"> /{{starCount}} (Average)</app-title>
-  </div>
-<button mat-icon-button [color]="color" class="icon-only" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" (click)="onClick(i+1)" [matTooltip]="ratingId+1" matTooltipPosition="above">
-  <mat-icon>
-    {{showIcon(i)}}
-  </mat-icon>
-</button>
-<mat-error *ngIf="starCount == null || starCount == 0">
-  Star count is <strong>required</strong> and cannot be zero
-</mat-error>
+<div *ngIf="mode=='view'">
+  <div fxLayout="row" fxLayoutAlign="start center">
+      <app-title customeClassName="font-22">{{rating}} Stars</app-title>
+      <app-title customeClassName="font-14 inactive"> /{{starCount}} (Average)</app-title>
+    </div>
+  <button mat-icon-button [color]="color" class="icon-only" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" (click)="onClick(i+1)" [matTooltip]="ratingId+1" matTooltipPosition="above">
+    <mat-icon>
+      {{showIcon(i)}}
+    </mat-icon>
+  </button>
+  <mat-error *ngIf="starCount == null || starCount == 0">
+    Star count is <strong>required</strong> and cannot be zero
+  </mat-error>
+</div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" *ngIf="mode=='add'">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button [color]="color" class="icon-only" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" (click)="onClick(i+1)" [matTooltip]="ratingId+1" matTooltipPosition="above">
+          <mat-icon>
+            {{showIcon(i)}}
+          </mat-icon>
+        </button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <app-title customeClassName="font-22">{{rating}} Stars</app-title>
+        <app-title customeClassName="font-14 inactive"> /{{starCount}} (Average)</app-title>
+      </div>
+    </div>
+    <mat-error *ngIf="starCount == null || starCount == 0">
+      Star count is <strong>required</strong> and cannot be zero
+    </mat-error>
+
