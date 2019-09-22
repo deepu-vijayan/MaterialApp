@@ -19,11 +19,15 @@ jw-modal {
         overflow: auto;
 
         .jw-modal-body {
+            position: fixed;
             padding: 20px;
             background: #fff;
-
+            width: 30%;
+            height: 60%;
             /* margin exposes part of the modal background */
             margin: 40px;
+
+            box-shadow:20px 20px 50px grey;
         }
     }
     .jw-modal-knowledge-status-popup-status {
@@ -84,8 +88,8 @@ jw-modal {
         left: 0;
 
         /* semi-transparent black  */
-        background-color: #000;
-        opacity: 0.75;
+        // background-color: #000;
+        // opacity: 0.75;
         
         /* z-index must be below .jw-modal and above everything else  */
         z-index: 900;

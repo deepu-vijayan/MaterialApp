@@ -12,6 +12,8 @@ import { debounceTime, switchMap, finalize, tap, filter } from 'rxjs/operators';
   styleUrls: ['./headernav.component.scss']
 })
 export class HeadernavComponent implements OnInit {
+  left: string;
+  top: string;
 
   constructor(private commonService:CommonService, private modalService: ModalService, private webapiService: WebapiService  ) { }
   profilePic:string ='';
@@ -59,8 +61,14 @@ export class HeadernavComponent implements OnInit {
   private _normalizeValue(value: string): string {
     return value.toLowerCase().replace(/\s/g, '');
   }
+  openPopOver(event,id : string,smallDevice:boolean){
 
-  openModal(id: string) {
+    this.left  = event.clientX - 300  + "px";
+    this.top  = event.clientY  + "px";
+    this.openModal(id , smallDevice);
+  }
+
+  openModal(id: string,smallDevice:boolean=false) {
       this.modalService.open(id);
       this.commonService.PULL_NOTIFICATION.next(true);
   }

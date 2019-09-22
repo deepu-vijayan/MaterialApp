@@ -26,8 +26,8 @@
           </form>
       </div>
       <div class="tools" fxFlex="20" fxFlex.lt-md="40" fxLayout="row" fxLayoutAlign="space-evenly center">
-        <div class="notify"><mat-icon matBadge="15" (click)="openModal('custom-modal-1')">notifications</mat-icon>
-          <jw-modal id="custom-modal-1">
+        <div class="notify"><mat-icon matBadge="15" (click)="openPopOver($event,'custom-modal-1',false)">notifications</mat-icon>
+          <jw-modal id="custom-modal-1" [XAxis]="left" [YAxis]="top">
             <app-notification-popup></app-notification-popup>
         </jw-modal>
         </div>
