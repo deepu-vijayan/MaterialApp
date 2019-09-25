@@ -18,6 +18,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelPropagation: true
@@ -35,12 +36,13 @@ import { ChartsModule } from 'ng2-charts';
 import {ChartModule} from 'primeng/chart';
 import { RatingChartsComponent } from './components/rating-charts/rating-charts.component';
 import { KnowledgeStatusPopupComponent } from './components/knowledge-status-popup/knowledge-status-popup.component';
+import { ShareButtonsModule } from '@ngx-share/buttons';
+
 @NgModule({
   declarations: [LayoutComponent, SidenavComponent, HeadernavComponent,
     ContentComponent, ProfileComponent, RatingComponent, ConnectionsPageComponent,
     PollsComponent, HomeComponent, FeedbackComponent, ConnectedProfilesComponent, NotificationPopupComponent,
-    SearchResultComponent, CustomerMenuFilter, AddRatingComponent, AddFeedbackComponent, RatingFactorsComponent, RatingChartsComponent, KnowledgeStatusPopupComponent
-  ],
+    SearchResultComponent, CustomerMenuFilter, AddRatingComponent, AddFeedbackComponent, RatingFactorsComponent, RatingChartsComponent, KnowledgeStatusPopupComponent  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -51,7 +53,8 @@ import { KnowledgeStatusPopupComponent } from './components/knowledge-status-pop
     PerfectScrollbarModule,
     ModalModule,
     ChartsModule,
-    ChartModule
+    ChartModule,
+    ShareButtonsModule
   ],
   exports: [
     SidenavComponent, HeadernavComponent, ProfileComponent
